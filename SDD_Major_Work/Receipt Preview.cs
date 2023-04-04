@@ -19,7 +19,17 @@ namespace SDD_Major_Work
 
         private void Receipt_Preview_Load(object sender, EventArgs e)
         {
+            label2.Text = "Borrower name: " + Globals.BorrowerName;
+            label3.Text = Convert.ToString(Globals.BorrowingTime);
+            label4.Text = "Due date: " + Globals.DueDate;
 
+            string BookBorrowing = "";
+            for (int i = 0; i < Globals.BookBorrowingList.Count; i++)
+            {
+                BookBorrowing = BookBorrowing + "\n" + Globals.BookBorrowingList[i];
+                label5.Text = BookBorrowing;
+            }
+            // ADD THING SO RECEIPT GETS LONGER IF TOO MANY BOOKS - PAST 7? BOOKS
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,6 +41,11 @@ namespace SDD_Major_Work
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();            
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
         }
     }
 }

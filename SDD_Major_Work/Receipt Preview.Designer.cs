@@ -31,14 +31,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,46 +65,20 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label3.Location = new System.Drawing.Point(75, 132);
+            this.label3.Location = new System.Drawing.Point(75, 134);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(191, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Borrowing date and time";
             // 
-            // label4
+            // printDocument1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label4.Location = new System.Drawing.Point(75, 170);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(208, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Book 1 name and due date";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label5.Location = new System.Drawing.Point(75, 201);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(208, 20);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Book 2 name and due date";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label6.Location = new System.Drawing.Point(75, 232);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(208, 20);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Book 3 name and due date";
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.button2.Location = new System.Drawing.Point(442, 157);
+            this.button2.Location = new System.Drawing.Point(509, 157);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 30);
             this.button2.TabIndex = 9;
@@ -116,7 +89,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.button1.Location = new System.Drawing.Point(341, 157);
+            this.button1.Location = new System.Drawing.Point(408, 157);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 30);
             this.button1.TabIndex = 7;
@@ -128,7 +101,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label7.Location = new System.Drawing.Point(343, 127);
+            this.label7.Location = new System.Drawing.Point(410, 127);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(159, 20);
             this.label7.TabIndex = 8;
@@ -136,11 +109,32 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(46, 55);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(266, 314);
+            this.pictureBox1.Size = new System.Drawing.Size(332, 329);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
+            this.label4.Location = new System.Drawing.Point(75, 157);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 20);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Due date";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
+            this.label5.Location = new System.Drawing.Point(75, 187);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 20);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Books";
             // 
             // Receipt_Preview
             // 
@@ -150,7 +144,6 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -171,13 +164,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

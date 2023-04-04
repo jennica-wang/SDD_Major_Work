@@ -52,7 +52,7 @@
     <Compile Include="Borrowing Completion.Designer.cs">
       <DependentUpon>Borrowing Completion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Global.cs" />
+    <Compile Include="Globals.cs" />
     <Compile Include="Main Borrowing.cs">
       <SubType>Form</SubType>
     </Compile>

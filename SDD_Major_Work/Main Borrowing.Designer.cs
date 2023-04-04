@@ -66,9 +66,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.label2.Location = new System.Drawing.Point(550, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 20);
+            this.label2.Size = new System.Drawing.Size(129, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Borrower name";
+            this.label2.Text = "Borrower name:";
             // 
             // label3
             // 
@@ -76,9 +76,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.label3.Location = new System.Drawing.Point(550, 63);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 20);
+            this.label3.Size = new System.Drawing.Size(124, 20);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Borrower id";
+            this.label3.Text = "Borrower code:";
             // 
             // textBox2
             // 
@@ -105,16 +105,16 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.label6.Location = new System.Drawing.Point(40, 224);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 20);
+            this.label6.Size = new System.Drawing.Size(130, 20);
             this.label6.TabIndex = 7;
-            this.label6.Text = "Book name";
+            this.label6.Text = "Books borrowed";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label7.Location = new System.Drawing.Point(550, 224);
+            this.label7.Location = new System.Drawing.Point(227, 224);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 20);
             this.label7.TabIndex = 8;
@@ -134,11 +134,15 @@
             // 
             // listBox1
             // 
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(210, 240);
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(39, 260);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(251, 173);
+            this.listBox1.Size = new System.Drawing.Size(678, 224);
             this.listBox1.TabIndex = 10;
+            this.listBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox1_KeyDown);
+            this.listBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBox1_KeyPress);
             // 
             // Main_Borrowing
             // 
