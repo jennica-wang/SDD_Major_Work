@@ -14,5 +14,6 @@ namespace SDD_Major_Work
         public static string BorrowerName;
         public static string DueDate;
         public static DateTime BorrowingTime;
+        public static bool receiptPreviewClosed;
     }
 }

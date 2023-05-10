@@ -19,6 +19,7 @@ namespace SDD_Major_Work
             
         public void Main_Borrowing_Load(object sender, EventArgs e)
         {
+            
             int w = Screen.PrimaryScreen.Bounds.Width;
             int h = Screen.PrimaryScreen.Bounds.Height;
             this.Location = new Point(0, 0);
@@ -69,17 +70,17 @@ namespace SDD_Major_Work
             // check if any books have been borrowed -> can't be empty
             // check if borrower info has been entered
 
-            if (label2.Text == "Borrower name")
+            if (Globals.BorrowerName == null)
             {
                 MessageBox.Show("No user has been selected.");
                 textBox1.Select();
             }
 
-            if (label7.Text == "Due date")
+            if (Globals.DueDate == null)
             {
                 MessageBox.Show("No books have been selected.");
                 textBox2.Select();
-                if (label2.Text == "Borrower name")
+                if (Globals.BorrowerName == null)
                 {
                     textBox1.Select();
                 }
@@ -153,6 +154,25 @@ namespace SDD_Major_Work
         private void listBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (Globals.receiptPreviewClosed == true)
+            {
+
+                Controls.Clear();
+                InitializeComponent();
+                
+                // clears variables
+                Globals.BookBorrowingList.Clear();
+                Globals.BookBorrowingList.TrimExcess();
+                Globals.BorrowerName = null;
+                Globals.DueDate = null;
+
+                Globals.receiptPreviewClosed = false;
+
+            }
         }
     }
 }

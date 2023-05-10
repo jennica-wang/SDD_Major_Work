@@ -26,8 +26,10 @@ namespace SDD_Major_Work
             for (int i = 0; i < Globals.BookBorrowingList.Count; i++)
             {
                 BookBorrowing = BookBorrowing + "\n" + Globals.BookBorrowingList[i];
-                label5.Text = BookBorrowing;
             }
+            label2.Text = "Borrower name: " + Globals.BorrowerName;
+            label3.Text = "Borrowing date: " + Convert.ToString(Globals.BorrowingTime);
+            label4.Text = "Due date: " + Globals.DueDate;
         }
 
         const string filename = "receipt.txt";
@@ -38,7 +40,7 @@ namespace SDD_Major_Work
                 "Room 212 Hornsby Girls High School, Hornsby NSW 2077\n\n" +
                 "BOOK RECEIPT\n\n" +
                 $"Borrower name: {Globals.BorrowerName}\n" +
-                $"Transaction: {Convert.ToString(Globals.BorrowingTime)}\n\n" +
+                $"Borrowing date: {Convert.ToString(Globals.BorrowingTime)}\n" +
                 $"{BookBorrowing}\n\n" +
                 $"Due date: {Globals.DueDate}");
             sw.Close();
@@ -59,6 +61,9 @@ namespace SDD_Major_Work
             {
                 reader.Close();
             }
+
+            Globals.receiptPreviewClosed = true;
+
         }
         private void PrintTextFileHandler(object sender, PrintPageEventArgs printContent)
         {
@@ -92,6 +97,10 @@ namespace SDD_Major_Work
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
 
+        }
+
+        private void Receipt_Preview_FormClosing(object sender, FormClosingEventArgs e)
+        {
         }
     }
 }
