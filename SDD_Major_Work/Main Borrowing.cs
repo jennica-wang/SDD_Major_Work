@@ -16,14 +16,18 @@ namespace SDD_Major_Work
         {
             InitializeComponent();
         }
-            
+
+        int w = Screen.PrimaryScreen.Bounds.Width;  // the screen dimensions of device
+        int h = Screen.PrimaryScreen.Bounds.Height;
+        
         public void Main_Borrowing_Load(object sender, EventArgs e)
         {
-            
-            int w = Screen.PrimaryScreen.Bounds.Width;
-            int h = Screen.PrimaryScreen.Bounds.Height;
             this.Location = new Point(0, 0);
             this.Size = new Size(w, h);     // sets form size to full screen size
+
+            dateTimePicker1.MinDate = DateTime.Now;
+            Globals.BorrowingTime = DateTime.Now;
+            dateTimePicker1.Value = DateTime.Now.AddDays(14);
 
             Globals.BorrowerList.Add("Harry Styles");
             Globals.BorrowerList.Add("Ariana Grande");
@@ -76,7 +80,7 @@ namespace SDD_Major_Work
                 textBox1.Select();
             }
 
-            if (Globals.DueDate == null)
+            if (Globals.BookBorrowingList == null)
             {
                 MessageBox.Show("No books have been selected.");
                 textBox2.Select();
@@ -109,10 +113,13 @@ namespace SDD_Major_Work
                     label2.Text = "Borrower name: " + Globals.BorrowerName;
                     label3.Text = "Borrower code: " + textBox1.Text;
                     textBox2.Focus();   // selects the next textbox
+                    
+                    
                 }
                 catch   // for invalid codes or data types
                 {
                     MessageBox.Show("Invalid user");
+                    textBox1.Clear();
                 }
             }
         }
@@ -126,27 +133,22 @@ namespace SDD_Major_Work
                     int Book_code = Convert.ToInt32(textBox2.Text); // converts to int
                     listBox1.Items.Add(Globals.BookList[Book_code]);    // finds book name correlating to code and adds to listbox
                     Globals.BookBorrowingList.Add(Globals.BookList[Book_code]);     // adds to a list for receipt
-                    Globals.BorrowingTime = DateTime.Now;  // gets current date time
-                    Globals.DueDate = (Globals.BorrowingTime.AddDays(14)).ToString("d");    // adds 14 days to current date and only takes date component
-                    label7.Text = "Due date: " + Globals.DueDate;
 
                 }
                 catch   // for invalid codes or data types
                 {
                     MessageBox.Show("Invalid book");
                 }
-                textBox2.Text = "";
+                textBox2.Clear();
             }
         }
 
         private void listBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete)  // once delete is pressed
+            if (e.KeyCode == Keys.Delete)   // once delete is pressed
             {
-                listBox1.Items.Remove(listBox1.SelectedItem);
-            }
-            if (e.KeyCode == Keys.Back)  // once delete is pressed
-            {
+                string selectedBook = Convert.ToString(listBox1.SelectedItem);
+                Globals.BookBorrowingList.Remove(selectedBook);
                 listBox1.Items.Remove(listBox1.SelectedItem);
             }
         }
@@ -156,14 +158,39 @@ namespace SDD_Major_Work
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dateTimePicker1.Visible = true;
+        }
+
+        private void dateTimePicker1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)  // once enter is pressed
+            {
+                dateTimePicker1.Visible = false;
+                textBox2.Focus();
+            }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            Globals.DueDate = (dateTimePicker1.Value).ToString("d");
+            label7.Text = "Due date: " + Globals.DueDate;
+        }
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (Globals.receiptPreviewClosed == true)
             {
-
-                Controls.Clear();
-                InitializeComponent();
+                Controls.Clear();   // removes controls
+                InitializeComponent();  // initialises form
+                this.Location = new Point(0, 0);
+                this.Size = new Size(w, h);     // sets form size to full screen size
                 
+                dateTimePicker1.MinDate = DateTime.Now;
+                Globals.BorrowingTime = DateTime.Now;
+                dateTimePicker1.Value = DateTime.Now.AddDays(14);
+
                 // clears variables
                 Globals.BookBorrowingList.Clear();
                 Globals.BookBorrowingList.TrimExcess();
@@ -174,5 +201,7 @@ namespace SDD_Major_Work
 
             }
         }
+
+        
     }
 }
