@@ -38,18 +38,18 @@ namespace SDD_Major_Work
             Globals.BorrowerList.Add("GRAE");
             Globals.BorrowerList.Add("Vicky Shao");
 
-            Globals.Books.Add(new Book("Matilda", "Roald Dahl", 1, "Humor"));
-            Globals.Books.Add(new Book("Charlie and the Chocolate Factory", "Roald Dahl", 2, "Humor"));
-            Globals.Books.Add(new Book("The BFG", "Roald Dahl", 3, "Fantasy"));
-            Globals.Books.Add(new Book("James and the Giant Peach", "Roald Dahl", 4, "Fantasy"));
-            Globals.Books.Add(new Book("Fantastic Mr Fox", "Roald Dahl", 5, "Adventure"));
-            Globals.Books.Add(new Book("The Twits", "Roald Dahl", 6, "Short Story"));
-            Globals.Books.Add(new Book("George's Marvellous Medicine", "Roald Dahl", 7, "Fantasy"));
-            Globals.Books.Add(new Book("The Magic Finger", "Roald Dahl", 8, "Short Story"));
-            Globals.Books.Add(new Book("Revolting Rhymes", "Roald Dahl", 9, "Poetry"));
-            Globals.Books.Add(new Book("The Enormous Crocodile", "Roald Dahl", 10, "Short Story"));
-            Globals.Books.Add(new Book("Esio Trot", "Roald Dahl", 11, "Short Story"));
-            Globals.Books.Add(new Book("The Giraffe and the Pelly and Me", "Roald Dahl", 12, "Short Story"));
+            Globals.Books.Add(new Book("Matilda", "Roald Dahl", 1, "Humor", true));
+            Globals.Books.Add(new Book("Charlie and the Chocolate Factory", "Roald Dahl", 2, "Humor", true));
+            Globals.Books.Add(new Book("The BFG", "Roald Dahl", 3, "Fantasy", true));
+            Globals.Books.Add(new Book("James and the Giant Peach", "Roald Dahl", 4, "Fantasy", true));
+            Globals.Books.Add(new Book("Fantastic Mr Fox", "Roald Dahl", 5, "Adventure", true));
+            Globals.Books.Add(new Book("The Twits", "Roald Dahl", 6, "Short Story", true));
+            Globals.Books.Add(new Book("George's Marvellous Medicine", "Roald Dahl", 7, "Fantasy", true));
+            Globals.Books.Add(new Book("The Magic Finger", "Roald Dahl", 8, "Short Story", true));
+            Globals.Books.Add(new Book("Revolting Rhymes", "Roald Dahl", 9, "Poetry", true));
+            Globals.Books.Add(new Book("The Enormous Crocodile", "Roald Dahl", 10, "Short Story", true));
+            Globals.Books.Add(new Book("Esio Trot", "Roald Dahl", 11, "Short Story", true));
+            Globals.Books.Add(new Book("The Giraffe and the Pelly and Me", "Roald Dahl", 12, "Short Story", true));
 
 
         }

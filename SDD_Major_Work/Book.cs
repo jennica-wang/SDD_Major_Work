@@ -12,13 +12,15 @@ namespace SDD_Major_Work
         public string Author;
         public int BookCode;
         public string Genre;
+        public bool Available;
 
-        public Book (string Book_BookName, string Book_Author, int Book_BookCode, string Book_Genre)
+        public Book (string Book_BookName, string Book_Author, int Book_BookCode, string Book_Genre, bool Book_Available)
         {
             BookName = Book_BookName;
             Author = Book_Author;
             BookCode = Book_BookCode;
             Genre = Book_Genre;
+            Available = Book_Available;
         }
 
 
