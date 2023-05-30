@@ -38,19 +38,19 @@ namespace SDD_Major_Work
             Globals.BorrowerList.Add("GRAE");
             Globals.BorrowerList.Add("Vicky Shao");
 
-            Globals.BookList.Add("Matilda");
-            Globals.BookList.Add("Charlie and the Chocolate Factory");
-            Globals.BookList.Add("The BFG");
-            Globals.BookList.Add("The Witches");
-            Globals.BookList.Add("James and the Giant Peach");
-            Globals.BookList.Add("Fantastic Mr Fox");
-            Globals.BookList.Add("The Twits");
-            Globals.BookList.Add("George's Marvellous Medicine");
-            Globals.BookList.Add("The Magic Finger");
-            Globals.BookList.Add("Revolting Rhymes");
-            Globals.BookList.Add("The Enormous Crocodile");
-            Globals.BookList.Add("Esio Trot");
-            Globals.BookList.Add("The Giraffe and the Pelly and Me");
+            Globals.Books.Add(new Book("Matilda", "Roald Dahl", 1, "Humor"));
+            Globals.Books.Add(new Book("Charlie and the Chocolate Factory", "Roald Dahl", 2, "Humor"));
+            Globals.Books.Add(new Book("The BFG", "Roald Dahl", 3, "Fantasy"));
+            Globals.Books.Add(new Book("James and the Giant Peach", "Roald Dahl", 4, "Fantasy"));
+            Globals.Books.Add(new Book("Fantastic Mr Fox", "Roald Dahl", 5, "Adventure"));
+            Globals.Books.Add(new Book("The Twits", "Roald Dahl", 6, "Short Story"));
+            Globals.Books.Add(new Book("George's Marvellous Medicine", "Roald Dahl", 7, "Fantasy"));
+            Globals.Books.Add(new Book("The Magic Finger", "Roald Dahl", 8, "Short Story"));
+            Globals.Books.Add(new Book("Revolting Rhymes", "Roald Dahl", 9, "Poetry"));
+            Globals.Books.Add(new Book("The Enormous Crocodile", "Roald Dahl", 10, "Short Story"));
+            Globals.Books.Add(new Book("Esio Trot", "Roald Dahl", 11, "Short Story"));
+            Globals.Books.Add(new Book("The Giraffe and the Pelly and Me", "Roald Dahl", 12, "Short Story"));
+
 
         }
 
@@ -128,14 +128,22 @@ namespace SDD_Major_Work
         {
             if (e.KeyChar == (char)Keys.Enter)  // once enter is pressed
             {
-                try
-                {
-                    int Book_code = Convert.ToInt32(textBox2.Text); // converts to int
-                    listBox1.Items.Add(Globals.BookList[Book_code]);    // finds book name correlating to code and adds to listbox
-                    Globals.BookBorrowingList.Add(Globals.BookList[Book_code]);     // adds to a list for receipt
+                bool BookExists = false;
+                int Book_code = Convert.ToInt32(textBox2.Text); // converts to int
 
+
+                foreach (Book book in Globals.Books)
+                {
+                    if (book.BookCode == Book_code)
+                    {
+                        listBox1.Items.Add(book.BookName);  // finds book name correlating to code and adds to listbox
+                        BookExists = true;
+                        Globals.BookBorrowingList.Add(book.BookName);   // adds book bame to a list for receipt
+                        break;  // stops foreach loop
+                    }
                 }
-                catch   // for invalid codes or data types
+
+                if (BookExists == false)
                 {
                     MessageBox.Show("Invalid book");
                 }
