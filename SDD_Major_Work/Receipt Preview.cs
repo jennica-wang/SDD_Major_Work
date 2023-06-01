@@ -57,6 +57,20 @@ namespace SDD_Major_Work
             PrintDocument receiptDocument = new PrintDocument();
             receiptDocument.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);  // printing formatting
             receiptDocument.Print();    // prints receipt
+
+            foreach (string item in Globals.BookBorrowingList)
+            {
+                foreach (Book book in Globals.Books)
+                {
+                    if (item == book.BookName)
+                    {
+                        book.Status = Globals.BorrowingStatus.Loaned;
+                        Properties.Settings.Default.Book1 = Convert.ToString(book.Status);  // MAKE IT SO THAT INSTEAD OF BOOK1, IT GETS THE CODE OF THE BOOK TO BE PROPERTIES.SETTINGS.DEFAULT.BOOK(CODE)
+                    }
+                }
+            }
+            Properties.Settings.Default.Save(); // saves the status of books after full borrow
+
             if (reader != null)
             {
                 reader.Close();

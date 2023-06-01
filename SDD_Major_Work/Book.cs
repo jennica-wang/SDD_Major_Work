@@ -8,19 +8,20 @@ namespace SDD_Major_Work
 {
     internal class Book
     {
+        
         public string BookName;
         public string Author;
         public int BookCode;
         public string Genre;
-        public bool Available;
+        public Globals.BorrowingStatus Status;
 
-        public Book (string Book_BookName, string Book_Author, int Book_BookCode, string Book_Genre, bool Book_Available)
+        public Book (string Book_BookName, string Book_Author, int Book_BookCode, string Book_Genre, Globals.BorrowingStatus Book_Status)
         {
             BookName = Book_BookName;
             Author = Book_Author;
             BookCode = Book_BookCode;
             Genre = Book_Genre;
-            Available = Book_Available;
+            Status = Book_Status;
         }
 
 
