@@ -39,18 +39,20 @@ namespace SDD_Major_Work
             Globals.BorrowerList.Add("BorrowerG");
             Globals.BorrowerList.Add("BorrowerH");
 
-            Globals.Books.Add(new Book("Matilda", "Roald Dahl", 1, "Humor", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("Charlie and the Chocolate Factory", "Roald Dahl", 2, "Humor", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("The BFG", "Roald Dahl", 3, "Fantasy", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("James and the Giant Peach", "Roald Dahl", 4, "Fantasy", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("Fantastic Mr Fox", "Roald Dahl", 5, "Adventure", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("The Twits", "Roald Dahl", 6, "Short Story", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("George's Marvellous Medicine", "Roald Dahl", 7, "Fantasy", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("The Magic Finger", "Roald Dahl", 8, "Short Story", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("Revolting Rhymes", "Roald Dahl", 9, "Poetry", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("The Enormous Crocodile", "Roald Dahl", 10, "Short Story", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("Esio Trot", "Roald Dahl", 11, "Short Story", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("The Giraffe and the Pelly and Me", "Roald Dahl", 12, "Short Story", Globals.BorrowingStatus.Available));
+            Globals.Books.Add(new Book("Matilda", "Roald Dahl", 9780241558300, "Humor", Globals.BorrowingStatus.Available));
+            Globals.Books.Add(new Book("Charlie and the Chocolate Factory", "Roald Dahl", 9780241558324, "Humor", Globals.BorrowingStatus.Available));
+            Globals.Books.Add(new Book("The BFG", "Roald Dahl", 9780241558348, "Fantasy", Globals.BorrowingStatus.Available));
+            Globals.Books.Add(new Book("James and the Giant Peach", "Roald Dahl", 9780241558331, "Fantasy", Globals.BorrowingStatus.Available));
+            Globals.Books.Add(new Book("Fantastic Mr Fox", "Roald Dahl", 9780241558355, "Adventure", Globals.BorrowingStatus.Available));
+            Globals.Books.Add(new Book("The Twits", "Roald Dahl", 9780241578186, "Short Story", Globals.BorrowingStatus.Available));
+            Globals.Books.Add(new Book("George's Marvellous Medicine", "Roald Dahl", 9780241558485, "Fantasy", Globals.BorrowingStatus.Available));
+            Globals.Books.Add(new Book("The Magic Finger", "Roald Dahl", 9780141322681, "Short Story", Globals.BorrowingStatus.Available));
+            Globals.Books.Add(new Book("Revolting Rhymes", "Roald Dahl", 9780140375336, "Poetry", Globals.BorrowingStatus.Available));
+            Globals.Books.Add(new Book("The Enormous Crocodile", "Roald Dahl", 9780241568644, "Short Story", Globals.BorrowingStatus.Available));
+            Globals.Books.Add(new Book("Esio Trot", "Roald Dahl", 9780141346496, "Short Story", Globals.BorrowingStatus.Available));
+            Globals.Books.Add(new Book("The Giraffe and the Pelly and Me", "Roald Dahl", 9780241558508, "Short Story", Globals.BorrowingStatus.Available));
+            Globals.Books.Add(new Book("The Witches", "Roald Dahl", 9780241578179, "Fantasy", Globals.BorrowingStatus.Available));
+            
 
         }
 
@@ -139,12 +141,12 @@ namespace SDD_Major_Work
             if (e.KeyChar == (char)Keys.Enter)  // once enter is pressed
             {
                 bool BookExists = false;
-                int Book_code = Convert.ToInt32(textBox2.Text); // converts to int
+                int InputISBN = Convert.ToInt32(textBox2.Text); // converts to int
 
                 foreach (Book book in Globals.Books)
                 {
-                    if (book.BookCode == Book_code)
-                    {                        
+                    if (book.ISBN == InputISBN)
+                    {
                         if (book.Status == Globals.BorrowingStatus.Loaned)
                         {
                             MessageBox.Show("Book is currently loaned, return the book first and try again.");
@@ -174,9 +176,6 @@ namespace SDD_Major_Work
                 string selectedBook = Convert.ToString(listBox1.SelectedItem);
                 Globals.BookBorrowingList.Remove(selectedBook);
                 listBox1.Items.Remove(listBox1.SelectedItem);
-
-                // IF STATUS IS LOANED, CHANGE STATUS BACK TO AVAILABLE
-
             }
         }
 
