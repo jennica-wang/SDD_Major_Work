@@ -16,10 +16,5 @@ namespace SDD_Major_Work
         public static bool receiptPreviewClosed;
 
         public static List<Book> Books = new List<Book>();
-
-        public enum BorrowingStatus
-        {
-            Available, Loaned
-        }
     }
 }

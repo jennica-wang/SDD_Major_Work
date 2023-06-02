@@ -2,10 +2,13 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SDD_Major_Work.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Book1" Type="System.String" Scope="User">
+    <Setting Name="Book9780241558300" Type="System.String" Scope="User">
       <Value Profile="(Default)">Available</Value>
     </Setting>
-    <Setting Name="Book2" Type="System.String" Scope="User">
+    <Setting Name="Book9780241558324" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Available</Value>
+    </Setting>
+    <Setting Name="Book9780241558348" Type="System.String" Scope="User">
       <Value Profile="(Default)">Available</Value>
     </Setting>
   </Settings>

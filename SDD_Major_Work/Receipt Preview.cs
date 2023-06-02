@@ -64,8 +64,10 @@ namespace SDD_Major_Work
                 {
                     if (item == book.BookName)
                     {
-                        book.Status = Globals.BorrowingStatus.Loaned;
-                        Properties.Settings.Default.Book1 = Convert.ToString(book.Status);  // MAKE IT SO THAT INSTEAD OF BOOK1, IT GETS THE CODE OF THE BOOK TO BE PROPERTIES.SETTINGS.DEFAULT.BOOK(CODE)
+                        string borrowingBook = "Book" + book.ISBN;
+                        book.Status = "Loaned";
+                        Properties.Settings.Default.Book9780241558300 = book.Status;
+                        // MAKE IT SO THAT INSTEAD OF BOOK1, IT GETS THE CODE OF THE BOOK TO BE PROPERTIES.SETTINGS.DEFAULT.BOOK(CODE)
                     }
                 }
             }

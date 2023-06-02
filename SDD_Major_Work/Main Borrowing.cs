@@ -39,20 +39,20 @@ namespace SDD_Major_Work
             Globals.BorrowerList.Add("BorrowerG");
             Globals.BorrowerList.Add("BorrowerH");
 
-            Globals.Books.Add(new Book("Matilda", "Roald Dahl", 9780241558300, "Humor", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("Charlie and the Chocolate Factory", "Roald Dahl", 9780241558324, "Humor", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("The BFG", "Roald Dahl", 9780241558348, "Fantasy", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("James and the Giant Peach", "Roald Dahl", 9780241558331, "Fantasy", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("Fantastic Mr Fox", "Roald Dahl", 9780241558355, "Adventure", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("The Twits", "Roald Dahl", 9780241578186, "Short Story", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("George's Marvellous Medicine", "Roald Dahl", 9780241558485, "Fantasy", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("The Magic Finger", "Roald Dahl", 9780141322681, "Short Story", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("Revolting Rhymes", "Roald Dahl", 9780140375336, "Poetry", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("The Enormous Crocodile", "Roald Dahl", 9780241568644, "Short Story", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("Esio Trot", "Roald Dahl", 9780141346496, "Short Story", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("The Giraffe and the Pelly and Me", "Roald Dahl", 9780241558508, "Short Story", Globals.BorrowingStatus.Available));
-            Globals.Books.Add(new Book("The Witches", "Roald Dahl", 9780241578179, "Fantasy", Globals.BorrowingStatus.Available));
-            
+            Globals.Books.Add(new Book("Matilda", "Roald Dahl", 9780241558300, "Humor", Properties.Settings.Default.Book9780241558300));
+            Globals.Books.Add(new Book("Charlie and the Chocolate Factory", "Roald Dahl", 9780241558324, "Humor", "Available"));
+            Globals.Books.Add(new Book("The BFG", "Roald Dahl", 9780241558348, "Fantasy", "Available"));
+            Globals.Books.Add(new Book("James and the Giant Peach", "Roald Dahl", 9780241558331, "Fantasy", "Available"));
+            Globals.Books.Add(new Book("Fantastic Mr Fox", "Roald Dahl", 9780241558355, "Adventure", "Available"));
+            Globals.Books.Add(new Book("The Twits", "Roald Dahl", 9780241578186, "Short Story", "Available"));
+            Globals.Books.Add(new Book("George's Marvellous Medicine", "Roald Dahl", 9780241558485, "Fantasy", "Available"));
+            Globals.Books.Add(new Book("The Magic Finger", "Roald Dahl", 9780141322681, "Short Story", "Available"));
+            Globals.Books.Add(new Book("Revolting Rhymes", "Roald Dahl", 9780140375336, "Poetry", "Available"));
+            Globals.Books.Add(new Book("The Enormous Crocodile", "Roald Dahl", 9780241568644, "Short Story", "Available"));
+            Globals.Books.Add(new Book("Esio Trot", "Roald Dahl", 9780141346496, "Short Story", "Available"));
+            Globals.Books.Add(new Book("The Giraffe and the Pelly and Me", "Roald Dahl", 9780241558508, "Short Story", "Available"));
+            Globals.Books.Add(new Book("The Witches", "Roald Dahl", 9780241578179, "Fantasy", "Available"));
+
 
         }
 
@@ -97,16 +97,6 @@ namespace SDD_Major_Work
                 var ReceiptPreviewForm = new Receipt_Preview();
                 ReceiptPreviewForm.Show();
             }
-
-            
-
-            // WHEN BUTTON IS PRESSED, GO THROUGH BOOK LIST AND CHANGE AVAILABILITY STATUS LOANED
-                // if books in bookborrowing list = BookCode in Globals.Books
-                // Book_Available = false
-            // CHANGE THE SETTINGS.SETTINGS VARIABLE TO BE EQUAL
-            // SAVE SETTINGS.SETTINGS ONLY WHEN PRINT RECEIPT
-            // ON EACH LOAD, THE AVAILABILITY STATUS OF BOOK SHOULD BE SET TO THE SETTINGS.SETTINGS VARIABLE
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -141,26 +131,33 @@ namespace SDD_Major_Work
             if (e.KeyChar == (char)Keys.Enter)  // once enter is pressed
             {
                 bool BookExists = false;
-                int InputISBN = Convert.ToInt32(textBox2.Text); // converts to int
+                bool BookLoaned = false;
+                long InputISBN = Convert.ToInt64(textBox2.Text); // converts to int
 
                 foreach (Book book in Globals.Books)
                 {
                     if (book.ISBN == InputISBN)
                     {
-                        if (book.Status == Globals.BorrowingStatus.Loaned)
+                        if (book.Status == "Loaned")
                         {
-                            MessageBox.Show("Book is currently loaned, return the book first and try again.");
+                            BookLoaned = true;
+                            MessageBox.Show("Book is currently loaned, return the book first and try again.");  // IF BOOK IS ALREADY IN BOOKBORROWINGLIST,
+                                                                                                                // MESSAGEBOX.SHOW("BOOK HAS ALREADY BEEN SCANNED.")
                             break;
                         }
-                        
-                        listBox1.Items.Add(book.BookName);  // finds book name correlating to code and adds to listbox
-                        BookExists = true;
-                        Globals.BookBorrowingList.Add(book.BookName);   // adds book bame to a list for receipt
-                        break;  // stops foreach loop
+
+                        else
+                        {
+                            book.Status = "Loaned"; // changes book's status to loaned
+                            listBox1.Items.Add(book.BookName);  // finds book name correlating to code and adds to listbox
+                            BookExists = true;
+                            Globals.BookBorrowingList.Add(book.BookName);   // adds book bame to a list for receipt
+                            break;
+                        }
                     }
                 }
 
-                if (BookExists == false)
+                if (BookExists == false && BookLoaned == false)
                 {
                     MessageBox.Show("Invalid book");
                 }
@@ -176,6 +173,16 @@ namespace SDD_Major_Work
                 string selectedBook = Convert.ToString(listBox1.SelectedItem);
                 Globals.BookBorrowingList.Remove(selectedBook);
                 listBox1.Items.Remove(listBox1.SelectedItem);
+
+
+                foreach (Book book in Globals.Books)    // if a book is deleted, the book status is changed back to available
+                {
+                    if (book.BookName == selectedBook)
+                    {
+                        book.Status = "Available";
+                    }
+                }
+
             }
         }
 

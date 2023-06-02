@@ -26,24 +26,36 @@ namespace SDD_Major_Work.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Available")]
-        public string Book1 {
+        public string Book9780241558300 {
             get {
-                return ((string)(this["Book1"]));
+                return ((string)(this["Book9780241558300"]));
             }
             set {
-                this["Book1"] = value;
+                this["Book9780241558300"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Available")]
-        public string Book2 {
+        public string Book9780241558324 {
             get {
-                return ((string)(this["Book2"]));
+                return ((string)(this["Book9780241558324"]));
             }
             set {
-                this["Book2"] = value;
+                this["Book9780241558324"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Available")]
+        public string Book9780241558348 {
+            get {
+                return ((string)(this["Book9780241558348"]));
+            }
+            set {
+                this["Book9780241558348"] = value;
             }
         }
     }
