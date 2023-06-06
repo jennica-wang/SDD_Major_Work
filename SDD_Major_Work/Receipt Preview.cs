@@ -62,12 +62,13 @@ namespace SDD_Major_Work
             {
                 foreach (Book book in Globals.Books)
                 {
-                    if (item == book.BookName)
+                    if (book.Status == "Loaned")
                     {
-                        string borrowingBook = "Book" + book.ISBN;
-                        book.Status = "Loaned";
-                        Properties.Settings.Default.Book9780241558300 = book.Status;
-                        // MAKE IT SO THAT INSTEAD OF BOOK1, IT GETS THE CODE OF THE BOOK TO BE PROPERTIES.SETTINGS.DEFAULT.BOOK(CODE)
+                        var SaveVariable = "Book" + book.ISBN;
+                        Properties.Settings.Default.Book9780241558331 = book.Status;
+                        
+                        
+                        // MAKE IT SO THAT INSTEAD OF BOOK-, IT GETS THE ISBN OF THE BOOK TO BE PROPERTIES.SETTINGS.DEFAULT.BOOK(ISBN)
                     }
                 }
             }
