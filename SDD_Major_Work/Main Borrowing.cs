@@ -41,19 +41,24 @@ namespace SDD_Major_Work
 
             
 
-            Globals.Books.Add(new Book("Matilda", "Roald Dahl", 9780241558300, "Humor", Properties.Settings.Default.Book9780241558300));
-            Globals.Books.Add(new Book("Charlie and the Chocolate Factory", "Roald Dahl", 9780241558324, "Humor", Properties.Settings.Default.Book9780241558324));
-            Globals.Books.Add(new Book("The BFG", "Roald Dahl", 9780241558348, "Fantasy", Properties.Settings.Default.Book9780241558348));
-            Globals.Books.Add(new Book("James and the Giant Peach", "Roald Dahl", 9780241558331, "Fantasy", Properties.Settings.Default.Book9780241558331));
-            Globals.Books.Add(new Book("Fantastic Mr Fox", "Roald Dahl", 9780241558355, "Adventure", Properties.Settings.Default.Book9780241558355));
-            Globals.Books.Add(new Book("The Twits", "Roald Dahl", 9780241578186, "Short Story", Properties.Settings.Default.Book9780241578186));
-            Globals.Books.Add(new Book("George's Marvellous Medicine", "Roald Dahl", 9780241558485, "Fantasy", Properties.Settings.Default.Book9780241558485));
-            Globals.Books.Add(new Book("The Magic Finger", "Roald Dahl", 9780141322681, "Short Story", Properties.Settings.Default.Book9780141322681));
-            Globals.Books.Add(new Book("Revolting Rhymes", "Roald Dahl", 9780140375336, "Poetry", Properties.Settings.Default.Book9780140375336));
-            Globals.Books.Add(new Book("The Enormous Crocodile", "Roald Dahl", 9780241568644, "Short Story", Properties.Settings.Default.Book9780241568644));
-            Globals.Books.Add(new Book("Esio Trot", "Roald Dahl", 9780141346496, "Short Story", Properties.Settings.Default.Book9780141346496));
-            Globals.Books.Add(new Book("The Giraffe and the Pelly and Me", "Roald Dahl", 9780241558508, "Short Story", Properties.Settings.Default.Book9780241558508));
-            Globals.Books.Add(new Book("The Witches", "Roald Dahl", 9780241578179, "Fantasy", Properties.Settings.Default.Book9780241578179));
+            Globals.Books.Add(new Book("Matilda", "Roald Dahl", 9780241558300, "Humor", "Available"));
+            Globals.Books.Add(new Book("Charlie and the Chocolate Factory", "Roald Dahl", 9780241558324, "Humor", "Available"));
+            Globals.Books.Add(new Book("The BFG", "Roald Dahl", 9780241558348, "Fantasy", "Available"));
+            Globals.Books.Add(new Book("James and the Giant Peach", "Roald Dahl", 9780241558331, "Fantasy", "Available"));
+            Globals.Books.Add(new Book("Fantastic Mr Fox", "Roald Dahl", 9780241558355, "Adventure", "Available"));
+            Globals.Books.Add(new Book("The Twits", "Roald Dahl", 9780241578186, "Short Story", "Available"));
+            Globals.Books.Add(new Book("George's Marvellous Medicine", "Roald Dahl", 9780241558485, "Fantasy", "Available"));
+            Globals.Books.Add(new Book("The Magic Finger", "Roald Dahl", 9780141322681, "Short Story", "Available"));
+            Globals.Books.Add(new Book("Revolting Rhymes", "Roald Dahl", 9780140375336, "Poetry", "Available"));
+            Globals.Books.Add(new Book("The Enormous Crocodile", "Roald Dahl", 9780241568644, "Short Story", "Available"));
+            Globals.Books.Add(new Book("Esio Trot", "Roald Dahl", 9780141346496, "Short Story", "Available"));
+            Globals.Books.Add(new Book("The Giraffe and the Pelly and Me", "Roald Dahl", 9780241558508, "Short Story", "Available"));
+            Globals.Books.Add(new Book("The Witches", "Roald Dahl", 9780241578179, "Fantasy", "Available"));
+            
+
+            // INITIAL XML FILE WITH ALL THE BOOKS ABOVE
+        
+        
         }
 
         private void label7_Click(object sender, EventArgs e)

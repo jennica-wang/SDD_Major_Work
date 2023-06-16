@@ -58,20 +58,6 @@ namespace SDD_Major_Work
             receiptDocument.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);  // printing formatting
             receiptDocument.Print();    // prints receipt
 
-            foreach (string item in Globals.BookBorrowingList)
-            {
-                foreach (Book book in Globals.Books)
-                {
-                    if (book.Status == "Loaned")
-                    {
-                        var SaveVariable = "Book" + book.ISBN;
-                        Properties.Settings.Default.Book9780241558331 = book.Status;
-                        
-                        
-                        // MAKE IT SO THAT INSTEAD OF BOOK-, IT GETS THE ISBN OF THE BOOK TO BE PROPERTIES.SETTINGS.DEFAULT.BOOK(ISBN)
-                    }
-                }
-            }
             Properties.Settings.Default.Save(); // saves the status of books after full borrow
 
             if (reader != null)

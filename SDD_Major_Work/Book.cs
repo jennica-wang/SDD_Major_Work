@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SDD_Major_Work
 {
-    internal class Book
+    public class Book
     {
         
         public string BookName;
@@ -23,5 +23,9 @@ namespace SDD_Major_Work
             Genre = Book_Genre;
             Status = Book_Status;
         }
+
+        public Book()
+        {}
+
     }
 }
