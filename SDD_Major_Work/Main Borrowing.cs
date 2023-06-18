@@ -231,8 +231,8 @@ namespace SDD_Major_Work
         {
             XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string filename = Path.Combine(path, "books.xml");
-            using (StreamReader reader = new StreamReader(filename))
+            string booksfile = Path.Combine(path, "books.xml");
+            using (StreamReader reader = new StreamReader(booksfile))
             {
                 Globals.Books = (List<Book>)serializer.Deserialize(reader);
             }

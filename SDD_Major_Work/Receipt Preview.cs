@@ -35,34 +35,26 @@ namespace SDD_Major_Work
             label4.Text = "Due date: " + Globals.DueDate;
         }
 
-        const string filename = "receipt.txt";
-        static void receiptEdit()   // edits text file for receipt
-        {
-            StreamWriter sw = new StreamWriter(filename);
-            sw.WriteLine("Jennica's Library\n" +
-                "Room 212 Hornsby Girls High School, Hornsby NSW 2077\n\n" +
-                "BOOK RECEIPT\n\n" +
-                $"Borrower name: {Globals.BorrowerName}\n" +
-                $"Borrowing date: {Convert.ToString(Globals.BorrowingTime)}\n" +
-                $"{BookBorrowing}\n\n" +
-                $"Due date: {Globals.DueDate}");
-            sw.Close();
-        }
-
+        const string receiptfile = "receipt.txt";
         private Font printFont;
         private StreamReader reader;
 
         private void button1_Click(object sender, EventArgs e)
         {
             receiptEdit();
-            reader = new StreamReader(filename);
+            reader = new StreamReader(receiptfile);
             printFont = new Font("MS Gothic", 10);  // sets font
             PrintDocument receiptDocument = new PrintDocument();
             receiptDocument.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);  // printing formatting
             receiptDocument.Print();    // prints receipt
 
-
-
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string booksfile = Path.Combine(path, "books.xml");
+            using (StreamReader reader = new StreamReader(booksfile))
+            {
+                Globals.Books = (List<Book>)serializer.Deserialize(reader);
+            }
 
             if (reader != null)
             {
@@ -98,23 +90,23 @@ namespace SDD_Major_Work
 
         private void button2_Click(object sender, EventArgs e)  // deseralises XML file to List<Book> and closes form
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string filename = Path.Combine(path, "books.xml");
-            using (StreamReader reader = new StreamReader(filename))
-            {
-                Globals.Books = (List<Book>)serializer.Deserialize(reader);
-            }
             this.Close();
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e) { }
+        private void Receipt_Preview_FormClosing(object sender, FormClosingEventArgs e) { }
 
-        }
-
-        private void Receipt_Preview_FormClosing(object sender, FormClosingEventArgs e)
+        static void receiptEdit()   // edits text file for receipt
         {
+            StreamWriter sw = new StreamWriter(receiptfile);
+            sw.WriteLine("Jennica's Library\n" +
+                "Room 212 Hornsby Girls High School, Hornsby NSW 2077\n\n" +
+                "BOOK RECEIPT\n\n" +
+                $"Borrower name: {Globals.BorrowerName}\n" +
+                $"Borrowing date: {Convert.ToString(Globals.BorrowingTime)}\n" +
+                $"{BookBorrowing}\n\n" +
+                $"Due date: {Globals.DueDate}");
+            sw.Close();
         }
     }
 }
