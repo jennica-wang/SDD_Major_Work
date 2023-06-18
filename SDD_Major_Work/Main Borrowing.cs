@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
+using SDD_Major_Work.Properties;
 
 namespace SDD_Major_Work
 {
@@ -38,43 +42,11 @@ namespace SDD_Major_Work
             Globals.BorrowerList.Add("BorrowerF");
             Globals.BorrowerList.Add("BorrowerG");
             Globals.BorrowerList.Add("BorrowerH");
-
-            
-
-            Globals.Books.Add(new Book("Matilda", "Roald Dahl", 9780241558300, "Humor", "Available"));
-            Globals.Books.Add(new Book("Charlie and the Chocolate Factory", "Roald Dahl", 9780241558324, "Humor", "Available"));
-            Globals.Books.Add(new Book("The BFG", "Roald Dahl", 9780241558348, "Fantasy", "Available"));
-            Globals.Books.Add(new Book("James and the Giant Peach", "Roald Dahl", 9780241558331, "Fantasy", "Available"));
-            Globals.Books.Add(new Book("Fantastic Mr Fox", "Roald Dahl", 9780241558355, "Adventure", "Available"));
-            Globals.Books.Add(new Book("The Twits", "Roald Dahl", 9780241578186, "Short Story", "Available"));
-            Globals.Books.Add(new Book("George's Marvellous Medicine", "Roald Dahl", 9780241558485, "Fantasy", "Available"));
-            Globals.Books.Add(new Book("The Magic Finger", "Roald Dahl", 9780141322681, "Short Story", "Available"));
-            Globals.Books.Add(new Book("Revolting Rhymes", "Roald Dahl", 9780140375336, "Poetry", "Available"));
-            Globals.Books.Add(new Book("The Enormous Crocodile", "Roald Dahl", 9780241568644, "Short Story", "Available"));
-            Globals.Books.Add(new Book("Esio Trot", "Roald Dahl", 9780141346496, "Short Story", "Available"));
-            Globals.Books.Add(new Book("The Giraffe and the Pelly and Me", "Roald Dahl", 9780241558508, "Short Story", "Available"));
-            Globals.Books.Add(new Book("The Witches", "Roald Dahl", 9780241578179, "Fantasy", "Available"));
-            
-
-            // INITIAL XML FILE WITH ALL THE BOOKS ABOVE
-        
-        
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void label7_Click(object sender, EventArgs e) { }
+        private void label6_Click(object sender, EventArgs e) { }
+        private void label5_Click(object sender, EventArgs e) { }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -87,7 +59,7 @@ namespace SDD_Major_Work
                 textBox1.Select();
             }
 
-            if (Globals.BookBorrowingList == null)
+            else if (Globals.BookBorrowingList == null)
             {
                 MessageBox.Show("No books have been selected.");
                 textBox2.Select();
@@ -97,17 +69,14 @@ namespace SDD_Major_Work
                 }
             }
 
-            else
+            else    // proceeds to receipt if borrower and books have been selected
             {
                 var ReceiptPreviewForm = new Receipt_Preview();
                 ReceiptPreviewForm.Show();
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+        private void textBox1_TextChanged(object sender, EventArgs e) { }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -136,45 +105,53 @@ namespace SDD_Major_Work
             if (e.KeyChar == (char)Keys.Enter)  // once enter is pressed
             {
                 bool BookExists = false;
-                bool BookLoaned = false;
-                long InputISBN = Convert.ToInt64(textBox2.Text); // converts to int
 
-                foreach (Book book in Globals.Books)
+                try
                 {
-                    if (book.ISBN == InputISBN)
-                    {
-                        if (book.Status == "Loaned")
-                        {
-                            foreach (string item in Globals.BookBorrowingList)  // checks whether the book is 'loaned' because it hasn't
-                            {                                                   // been returned yet or if it has already been scanned
-                                if (item == book.BookName)  // book was already scanned
-                                {
-                                    MessageBox.Show("Book has already been scanned.");
-                                    break;
-                                }
+                    long InputISBN = Convert.ToInt64(textBox2.Text); // converts to int
 
-                                else    // book is still loaned
-                                {       
-                                    BookLoaned = true;
-                                    MessageBox.Show("Book is currently loaned, return the book first and try again.");
+                    foreach (Book book in Globals.Books)
+                    {
+                        if (book.ISBN == InputISBN) // checks if book exists
+                        {
+                            if (book.Status == "Loaned")    // checks if book is loaned
+                            {
+                                foreach (string item in Globals.BookBorrowingList)  // checks whether the book is 'loaned' because it hasn't been returned or if it has already been scanned in this transaction
+                                {
+                                    if (item == book.BookName)  // book was already scanned
+                                    {
+                                        MessageBox.Show("Book has already been scanned.");
+                                        break;
+                                    }
+
+                                    else    // book is still loaned
+                                    {
+                                        MessageBox.Show("Book is currently loaned, return the book first and try again.");
+                                    }
                                 }
                             }
+                            else    // book exists
+                            {
+                                book.Status = "Loaned"; // changes book's status to loaned
+                                listBox1.Items.Add(book.BookName);  // finds book name correlating to code and adds to listbox
+                                BookExists = true;
+                                Globals.BookBorrowingList.Add(book.BookName);   // adds book name to a list for receipt
+                                break;
+                            }
                         }
-                        else
-                        {
-                            book.Status = "Loaned"; // changes book's status to loaned
-                            listBox1.Items.Add(book.BookName);  // finds book name correlating to code and adds to listbox
-                            BookExists = true;
-                            Globals.BookBorrowingList.Add(book.BookName);   // adds book bame to a list for receipt
-                            break;
-                        }
+                    }
+
+                    if (BookExists == false)    // book doesn't exist
+                    {
+                        MessageBox.Show("Invalid book");
                     }
                 }
 
-                if (BookExists == false && BookLoaned == false)
+                catch   // input is not a number
                 {
                     MessageBox.Show("Invalid book");
                 }
+                
                 textBox2.Clear();
 
             }
@@ -248,6 +225,17 @@ namespace SDD_Major_Work
 
             }
         }
-                
+
+
+        private void button3_Click(object sender, EventArgs e)  // serealizes List<Book> to an XML file
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string filename = Path.Combine(path, "books.xml");
+            using (StreamReader reader = new StreamReader(filename))
+            {
+                Globals.Books = (List<Book>)serializer.Deserialize(reader);
+            }
+        }
     }
 }

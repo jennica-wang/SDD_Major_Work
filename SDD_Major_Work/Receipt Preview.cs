@@ -9,6 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
+using SDD_Major_Work.Properties;
 
 namespace SDD_Major_Work
 {
@@ -58,7 +61,8 @@ namespace SDD_Major_Work
             receiptDocument.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);  // printing formatting
             receiptDocument.Print();    // prints receipt
 
-            Properties.Settings.Default.Save(); // saves the status of books after full borrow
+
+
 
             if (reader != null)
             {
@@ -92,9 +96,16 @@ namespace SDD_Major_Work
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)  // deseralises XML file to List<Book> and closes form
         {
-            this.Close();            
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string filename = Path.Combine(path, "books.xml");
+            using (StreamReader reader = new StreamReader(filename))
+            {
+                Globals.Books = (List<Book>)serializer.Deserialize(reader);
+            }
+            this.Close();
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
