@@ -42,6 +42,8 @@ namespace SDD_Major_Work
             Globals.BorrowerList.Add("BorrowerF");
             Globals.BorrowerList.Add("BorrowerG");
             Globals.BorrowerList.Add("BorrowerH");
+
+            
         }
 
         private void label7_Click(object sender, EventArgs e) { }
@@ -59,7 +61,7 @@ namespace SDD_Major_Work
                 textBox1.Select();
             }
 
-            else if (Globals.BookBorrowingList == null)
+            else if (Globals.BookBorrowingList.Count == 0)
             {
                 MessageBox.Show("No books have been selected.");
                 textBox2.Select();
@@ -102,10 +104,10 @@ namespace SDD_Major_Work
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
+            bool BookExists = false;
+            
             if (e.KeyChar == (char)Keys.Enter)  // once enter is pressed
             {
-                bool BookExists = false;
-
                 try
                 {
                     long InputISBN = Convert.ToInt64(textBox2.Text); // converts to int
@@ -114,23 +116,33 @@ namespace SDD_Major_Work
                     {
                         if (book.ISBN == InputISBN) // checks if book exists
                         {
-                            if (book.Status == "Loaned")    // checks if book is loaned
-                            {
-                                foreach (string item in Globals.BookBorrowingList)  // checks whether the book is 'loaned' because it hasn't been returned or if it has already been scanned in this transaction
-                                {
-                                    if (item == book.BookName)  // book was already scanned
-                                    {
-                                        MessageBox.Show("Book has already been scanned.");
-                                        break;
-                                    }
+                            BookExists = true;
 
-                                    else    // book is still loaned
+                            if (book.Status == "Loaned")    // checks if book is loaned
+                            {                                
+                                if (Globals.BookBorrowingList.Count == 0)   // if list is empty, assumed book was already loaned
+                                {
+                                    MessageBox.Show("Book is currently loaned, return the book first and try again.");
+                                }
+                                else
+                                {
+                                    foreach (string item in Globals.BookBorrowingList)  // checks whether the book is 'loaned' because it hasn't been returned or if it has already been scanned in this transaction
                                     {
-                                        MessageBox.Show("Book is currently loaned, return the book first and try again.");
+                                        if (item == book.BookName)  // book was already scanned
+                                        {
+                                            MessageBox.Show("Book has already been scanned.");
+                                            break;
+                                        }
+
+                                        else    // book is still loaned
+                                        {
+                                            MessageBox.Show("Book is currently loaned, return the book first and try again.");
+                                        }
                                     }
                                 }
                             }
-                            else    // book exists
+
+                            else if (book.Status == "Available")    // book is available to be borrowed
                             {
                                 book.Status = "Loaned"; // changes book's status to loaned
                                 listBox1.Items.Add(book.BookName);  // finds book name correlating to code and adds to listbox
@@ -220,6 +232,7 @@ namespace SDD_Major_Work
                 Globals.BookBorrowingList.TrimExcess();
                 Globals.BorrowerName = null;
                 Globals.DueDate = null;
+
 
                 Globals.receiptPreviewClosed = false;
 

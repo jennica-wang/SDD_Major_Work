@@ -51,9 +51,9 @@ namespace SDD_Major_Work
             XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string booksfile = Path.Combine(path, "books.xml");
-            using (StreamReader reader = new StreamReader(booksfile))
+            using (StreamWriter writer = new StreamWriter(booksfile))
             {
-                Globals.Books = (List<Book>)serializer.Deserialize(reader);
+                serializer.Serialize(writer, Globals.Books);
             }
 
             if (reader != null)
@@ -62,6 +62,7 @@ namespace SDD_Major_Work
             }
 
             Globals.receiptPreviewClosed = true;
+            this.Close();
 
         }
         private void PrintTextFileHandler(object sender, PrintPageEventArgs printContent)
