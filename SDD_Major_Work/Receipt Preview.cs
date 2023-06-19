@@ -48,6 +48,7 @@ namespace SDD_Major_Work
             receiptDocument.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);  // printing formatting
             receiptDocument.Print();    // prints receipt
 
+            // serialises list<Book> to XML file
             XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string booksfile = Path.Combine(path, "books.xml");
@@ -89,7 +90,7 @@ namespace SDD_Major_Work
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)  // deseralises XML file to List<Book> and closes form
+        private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
