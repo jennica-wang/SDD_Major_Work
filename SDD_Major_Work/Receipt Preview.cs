@@ -21,52 +21,30 @@ namespace SDD_Major_Work
         {
             InitializeComponent();
         }
-
-        static string BookBorrowing = "";
-
-        private void Receipt_Preview_Load(object sender, EventArgs e)
-        {
-            for (int i = 0; i < Globals.BookBorrowingList.Count; i++)
-            {
-                BookBorrowing = BookBorrowing + "\n" + Globals.BookBorrowingList[i];
-            }
-            label2.Text = "Borrower name: " + Globals.BorrowerName;
-            label3.Text = "Borrowing date: " + Convert.ToString(Globals.BorrowingTime);
-            label4.Text = "Due date: " + Globals.DueDate;
-        }
-
+        static string BooksBorrowed;    // string of books the user is borrowing
         const string receiptfile = "receipt.txt";
         private Font printFont;
         private StreamReader reader;
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Receipt_Preview_Load(object sender, EventArgs e)
         {
-            receiptEdit();
-            reader = new StreamReader(receiptfile);
-            printFont = new Font("MS Gothic", 10);  // sets font
-            PrintDocument receiptDocument = new PrintDocument();
-            receiptDocument.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);  // printing formatting
-            receiptDocument.Print();    // prints receipt
-
-            // serialises list<Book> to XML file
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string booksfile = Path.Combine(path, "books.xml");
-            using (StreamWriter writer = new StreamWriter(booksfile))
-            {
-                serializer.Serialize(writer, Globals.Books);
-            }
-
-            if (reader != null)
+            BooksBorrowed = BooksBorrowing("");
+            ReceiptPreviewInfo();
+        }        
+        private void ButtonConfirm_Click(object sender, EventArgs e)
+        {
+            ReceiptEdit();
+            Printing();
+            if (reader != null) // closes reader once read
             {
                 reader.Close();
             }
-
-            Globals.receiptPreviewClosed = true;
+            
+            Serialise();    // serialises updated list with statuses
+            Globals.receiptPreviewClosed = true;    // printing is done and new borrow needs to be started
             this.Close();
-
-        }
-        private void PrintTextFileHandler(object sender, PrintPageEventArgs printContent)
+        }        
+        private void PrintTextFileHandler(object sender, PrintPageEventArgs printContent)   // graphically formats file for printing
         {
             Graphics g = printContent.Graphics;
             int count = 0;
@@ -80,7 +58,7 @@ namespace SDD_Major_Work
                 g.DrawString(line, printFont, Brushes.Black, leftMargin, yPos, new StringFormat()); // draws text
                 count++;
             }
-            if (line != null)
+            if (line != null)   // checks if there are more lines
             {
                 printContent.HasMorePages = true;
             }
@@ -89,16 +67,36 @@ namespace SDD_Major_Work
                 printContent.HasMorePages = false;
             }
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void ButtonReturn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e) { }
-        private void Receipt_Preview_FormClosing(object sender, FormClosingEventArgs e) { }
-
-        static void receiptEdit()   // edits text file for receipt
+        void Serialise()    // serialises list<Book> to XML file
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string booksfile = Path.Combine(path, "books.xml");
+            using (StreamWriter writer = new StreamWriter(booksfile))
+            {
+                serializer.Serialize(writer, Globals.Books);
+            }
+        }        
+        void ReceiptPreviewInfo()   // adds info onto receiptpreview (borrower name, borrowing date and due date)
+        {
+            LabelBorrowerName.Text = "Borrower name: " + Globals.BorrowerName;
+            LabelBorrowingDate.Text = "Borrowing date: " + Convert.ToString(Globals.BorrowingTime);
+            LabelDueDate.Text = "Due date: " + Globals.DueDate;
+        }
+        string BooksBorrowing(string BookBorrowing) // combines all books being borrowed into one string
+        {
+            for (int i = 0; i < Globals.BookBorrowingList.Count; i++)
+            {
+                BookBorrowing = BookBorrowing + "\n" + Globals.BookBorrowingList[i];
+            }
+            return BookBorrowing;
+        }
+        void ReceiptEdit()   // opens writer, edits text file contents for receipt, closes writer
         {
             StreamWriter sw = new StreamWriter(receiptfile);
             sw.WriteLine("Jennica's Library\n" +
@@ -106,9 +104,18 @@ namespace SDD_Major_Work
                 "BOOK RECEIPT\n\n" +
                 $"Borrower name: {Globals.BorrowerName}\n" +
                 $"Borrowing date: {Convert.ToString(Globals.BorrowingTime)}\n" +
-                $"{BookBorrowing}\n\n" +
+                $"{BooksBorrowed}\n\n" +
                 $"Due date: {Globals.DueDate}");
             sw.Close();
+        }
+        void Printing() // formats file for printing, prints receipt
+        {
+            reader = new StreamReader(receiptfile); // reads content of file
+            printFont = new Font("MS Gothic", 10);  // sets font
+            PrintDocument receiptDocument = new PrintDocument();
+            receiptDocument.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);  // printing formatting
+
+            receiptDocument.Print();    // prints receipt
         }
     }
 }

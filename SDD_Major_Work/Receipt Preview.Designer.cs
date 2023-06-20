@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Receipt_Preview));
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.LabelBorrowerName = new System.Windows.Forms.Label();
+            this.LabelBorrowingDate = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ButtonReturn = new System.Windows.Forms.Button();
+            this.ButtonConfirm = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.LabelDueDate = new System.Windows.Forms.Label();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,51 +53,47 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Receipt Details";
             // 
-            // label2
+            // LabelBorrowerName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label2.Location = new System.Drawing.Point(109, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Borrower name";
+            this.LabelBorrowerName.AutoSize = true;
+            this.LabelBorrowerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
+            this.LabelBorrowerName.Location = new System.Drawing.Point(109, 130);
+            this.LabelBorrowerName.Name = "LabelBorrowerName";
+            this.LabelBorrowerName.Size = new System.Drawing.Size(124, 20);
+            this.LabelBorrowerName.TabIndex = 1;
+            this.LabelBorrowerName.Text = "Borrower name";
             // 
-            // label3
+            // LabelBorrowingDate
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label3.Location = new System.Drawing.Point(109, 153);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(191, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Borrowing date and time";
+            this.LabelBorrowingDate.AutoSize = true;
+            this.LabelBorrowingDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
+            this.LabelBorrowingDate.Location = new System.Drawing.Point(109, 153);
+            this.LabelBorrowingDate.Name = "LabelBorrowingDate";
+            this.LabelBorrowingDate.Size = new System.Drawing.Size(191, 20);
+            this.LabelBorrowingDate.TabIndex = 2;
+            this.LabelBorrowingDate.Text = "Borrowing date and time";
             // 
-            // printDocument1
+            // ButtonReturn
             // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            this.ButtonReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
+            this.ButtonReturn.Location = new System.Drawing.Point(215, 336);
+            this.ButtonReturn.Name = "ButtonReturn";
+            this.ButtonReturn.Size = new System.Drawing.Size(94, 30);
+            this.ButtonReturn.TabIndex = 9;
+            this.ButtonReturn.Text = "Return";
+            this.ButtonReturn.UseVisualStyleBackColor = true;
+            this.ButtonReturn.Click += new System.EventHandler(this.ButtonReturn_Click);
             // 
-            // button2
+            // ButtonConfirm
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.button2.Location = new System.Drawing.Point(215, 336);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 30);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Return";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.button1.Location = new System.Drawing.Point(114, 336);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 30);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Confirm";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ButtonConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
+            this.ButtonConfirm.Location = new System.Drawing.Point(114, 336);
+            this.ButtonConfirm.Name = "ButtonConfirm";
+            this.ButtonConfirm.Size = new System.Drawing.Size(94, 30);
+            this.ButtonConfirm.TabIndex = 7;
+            this.ButtonConfirm.Text = "Confirm";
+            this.ButtonConfirm.UseVisualStyleBackColor = true;
+            this.ButtonConfirm.Click += new System.EventHandler(this.ButtonConfirm_Click);
             // 
             // label7
             // 
@@ -118,15 +114,15 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // label4
+            // LabelDueDate
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label4.Location = new System.Drawing.Point(109, 194);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Due date";
+            this.LabelDueDate.AutoSize = true;
+            this.LabelDueDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
+            this.LabelDueDate.Location = new System.Drawing.Point(109, 194);
+            this.LabelDueDate.Name = "LabelDueDate";
+            this.LabelDueDate.Size = new System.Drawing.Size(77, 20);
+            this.LabelDueDate.TabIndex = 3;
+            this.LabelDueDate.Text = "Due date";
             // 
             // printDialog1
             // 
@@ -147,17 +143,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 450);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.ButtonReturn);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.ButtonConfirm);
+            this.Controls.Add(this.LabelDueDate);
+            this.Controls.Add(this.LabelBorrowingDate);
+            this.Controls.Add(this.LabelBorrowerName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Receipt_Preview";
             this.Text = "Receipt Preview";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Receipt_Preview_FormClosing);
             this.Load += new System.EventHandler(this.Receipt_Preview_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -168,14 +163,14 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LabelBorrowerName;
+        private System.Windows.Forms.Label LabelBorrowingDate;
         private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ButtonReturn;
+        private System.Windows.Forms.Button ButtonConfirm;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LabelDueDate;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
