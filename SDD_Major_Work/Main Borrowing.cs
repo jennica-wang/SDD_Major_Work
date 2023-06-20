@@ -148,6 +148,7 @@ namespace SDD_Major_Work
         }
         private void returnBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Deserialise();
             var ReturnBooksForm = new Return_Books();
             ReturnBooksForm.Show();
         }
@@ -156,9 +157,7 @@ namespace SDD_Major_Work
             Deserialise();
         }
 
-        
-
-        void Deserialise()
+        private void Deserialise()
         {
             XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -168,7 +167,7 @@ namespace SDD_Major_Work
                 Globals.Books = (List<Book>)serializer.Deserialize(reader);
             }
         }   // deserealises XML file to List<Book>
-        void NewBorrow()    // initial screen size and date formatting applicable for all borrows
+        private void NewBorrow()    // initial screen size and date formatting applicable for all borrows
         {
             Location = new Point(0, 0);
             Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);    // sets form size be full screen
@@ -177,7 +176,7 @@ namespace SDD_Major_Work
             Globals.BorrowingTime = DateTime.Now;
             DateTimePicker.Value = DateTime.Now.AddDays(14);   // sets default return date to 14 days
         }
-        bool IdentifyBook(long InputISBN)   // finds if book exists
+        private bool IdentifyBook(long InputISBN)   // finds if book exists
         {
             bool exists = false;
             foreach (Book book in Globals.Books)
@@ -198,7 +197,7 @@ namespace SDD_Major_Work
             }
             return exists;
         }
-        void IsLoaned(Book book)    // process for when a book is loaned
+        private void IsLoaned(Book book)    // process for when a book is loaned
         {            
                 if (Globals.BookBorrowingList.Count == 0)   // if list is empty, assumed book was already loaned
                 {
@@ -209,7 +208,7 @@ namespace SDD_Major_Work
                     LoanedReason(book);
                 }            
         }
-        void LoanedReason(Book book)    // checks if book is loaned because it hasn't been returned or it's already been scanned
+        private void LoanedReason(Book book)    // checks if book is loaned because it hasn't been returned or it's already been scanned
         {
             foreach (string item in Globals.BookBorrowingList)
             {
@@ -225,13 +224,13 @@ namespace SDD_Major_Work
                 }
             }
         }
-        void BorrowBook(Book book)  // process for borrowing book, adds book to BookBorrowingList
+        private void BorrowBook(Book book)  // process for borrowing book, adds book to BookBorrowingList
         {
             book.Status = "Loaned"; // changes book's status to loaned
             ListBoxBooks.Items.Add(book.BookName);  // finds book name correlating to code and adds to listbox
             Globals.BookBorrowingList.Add(book.BookName);   // adds book name to a list for receipt
         }
-        void RemoveBook()   // removes book from listbox and changes status to available
+        private void RemoveBook()   // removes book from listbox and changes status to available
         {
             string selectedBook = Convert.ToString(ListBoxBooks.SelectedItem);
             Globals.BookBorrowingList.Remove(selectedBook);
@@ -245,7 +244,7 @@ namespace SDD_Major_Work
                 }
             }
         }
-        void HideDateTimePicker()   // hides and focuses on textbox
+        private void HideDateTimePicker()   // hides and focuses on textbox
         {
             DateTimePicker.Visible = false;
             TextBoxBook.Focus();

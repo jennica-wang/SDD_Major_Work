@@ -28,21 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TextBoxISBN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ButtonReturn = new System.Windows.Forms.Button();
             this.ButtonClose = new System.Windows.Forms.Button();
             this.LabelBookName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // TextBoxISBN
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.textBox1.Location = new System.Drawing.Point(97, 111);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.TextBoxISBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
+            this.TextBoxISBN.Location = new System.Drawing.Point(97, 111);
+            this.TextBoxISBN.Name = "TextBoxISBN";
+            this.TextBoxISBN.Size = new System.Drawing.Size(138, 26);
+            this.TextBoxISBN.TabIndex = 0;
+            this.TextBoxISBN.TextChanged += new System.EventHandler(this.TextBoxISBN_TextChanged);
+            this.TextBoxISBN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxISBN_KeyPress);
             // 
             // label1
             // 
@@ -74,6 +75,7 @@
             this.ButtonClose.TabIndex = 3;
             this.ButtonClose.Text = "Close";
             this.ButtonClose.UseVisualStyleBackColor = true;
+            this.ButtonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
             // LabelBookName
             // 
@@ -94,9 +96,10 @@
             this.Controls.Add(this.ButtonClose);
             this.Controls.Add(this.ButtonReturn);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TextBoxISBN);
             this.Name = "Return_Books";
             this.Text = "Return_Books";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Return_Books_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,7 +107,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TextBoxISBN;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ButtonReturn;
         private System.Windows.Forms.Button ButtonClose;

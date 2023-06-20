@@ -21,8 +21,9 @@ namespace SDD_Major_Work
         {
             InitializeComponent();
         }
-        static string BooksBorrowed;    // string of books the user is borrowing
-        const string receiptfile = "receipt.txt";
+
+        private static string BooksBorrowed;    // string of books the user is borrowing
+        private const string receiptfile = "receipt.txt";
         private Font printFont;
         private StreamReader reader;
 
@@ -72,7 +73,7 @@ namespace SDD_Major_Work
             this.Close();
         }
 
-        void Serialise()    // serialises list<Book> to XML file
+        private void Serialise()    // serialises list<Book> to XML file
         {
             XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -81,14 +82,14 @@ namespace SDD_Major_Work
             {
                 serializer.Serialize(writer, Globals.Books);
             }
-        }        
-        void ReceiptPreviewInfo()   // adds info onto receiptpreview (borrower name, borrowing date and due date)
+        }
+        private void ReceiptPreviewInfo()   // adds info onto receiptpreview (borrower name, borrowing date and due date)
         {
             LabelBorrowerName.Text = "Borrower name: " + Globals.BorrowerName;
             LabelBorrowingDate.Text = "Borrowing date: " + Convert.ToString(Globals.BorrowingTime);
             LabelDueDate.Text = "Due date: " + Globals.DueDate;
         }
-        string BooksBorrowing(string BookBorrowing) // combines all books being borrowed into one string
+        private string BooksBorrowing(string BookBorrowing) // combines all books being borrowed into one string
         {
             for (int i = 0; i < Globals.BookBorrowingList.Count; i++)
             {
@@ -96,7 +97,7 @@ namespace SDD_Major_Work
             }
             return BookBorrowing;
         }
-        void ReceiptEdit()   // opens writer, edits text file contents for receipt, closes writer
+        private void ReceiptEdit()   // opens writer, edits text file contents for receipt, closes writer
         {
             StreamWriter sw = new StreamWriter(receiptfile);
             sw.WriteLine("Jennica's Library\n" +
@@ -108,7 +109,7 @@ namespace SDD_Major_Work
                 $"Due date: {Globals.DueDate}");
             sw.Close();
         }
-        void Printing() // formats file for printing, prints receipt
+        private void Printing() // formats file for printing, prints receipt
         {
             reader = new StreamReader(receiptfile); // reads content of file
             printFont = new Font("MS Gothic", 10);  // sets font
