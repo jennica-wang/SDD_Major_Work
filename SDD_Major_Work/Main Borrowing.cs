@@ -249,5 +249,14 @@ namespace SDD_Major_Work
             DateTimePicker.Visible = false;
             TextBoxBook.Focus();
         }
+
+        private void TextBoxSearch_Click(object sender, EventArgs e)
+        {
+            if (TextBoxSearch.Text == "Search...")
+            {
+                TextBoxSearch.Text = "";
+                TextBoxSearch.ForeColor = SystemColors.WindowText;
+            }
+        }
     }
 }
