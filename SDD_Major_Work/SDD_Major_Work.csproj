@@ -68,6 +68,12 @@
     <Compile Include="Receipt Preview.Designer.cs">
       <DependentUpon>Receipt Preview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Return Books.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Return Books.Designer.cs">
+      <DependentUpon>Return Books.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Borrowing Completion.resx">
       <DependentUpon>Borrowing Completion.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,6 +91,9 @@
     </Compile>
     <EmbeddedResource Include="Receipt Preview.resx">
       <DependentUpon>Receipt Preview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Return Books.resx">
+      <DependentUpon>Return Books.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

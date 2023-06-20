@@ -146,7 +146,18 @@ namespace SDD_Major_Work
         {
             Deserialise();
         }
+        private void returnBookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var ReturnBooksForm = new Return_Books();
+            ReturnBooksForm.Show();
+        }
+        private void deserialiseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Deserialise();
+        }
+
         
+
         void Deserialise()
         {
             XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));

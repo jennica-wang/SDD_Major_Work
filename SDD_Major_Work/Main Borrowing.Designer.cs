@@ -43,6 +43,10 @@
             this.ButtonChangeDate = new System.Windows.Forms.Button();
             this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.ButtonDeserialise = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.returnBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deserialiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TextBoxBorrower
@@ -60,9 +64,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.label1.Location = new System.Drawing.Point(40, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 20);
+            this.label1.Size = new System.Drawing.Size(161, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Enter borrower code:";
+            this.label1.Text = "Enter borrower code";
             // 
             // label2
             // 
@@ -99,15 +103,15 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.label4.Location = new System.Drawing.Point(40, 139);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 20);
+            this.label4.Size = new System.Drawing.Size(93, 20);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Add book:";
+            this.label4.Text = "Enter ISBN";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label6.Location = new System.Drawing.Point(40, 224);
+            this.label6.Location = new System.Drawing.Point(40, 227);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(130, 20);
             this.label6.TabIndex = 7;
@@ -181,6 +185,33 @@
             this.ButtonDeserialise.UseVisualStyleBackColor = true;
             this.ButtonDeserialise.Click += new System.EventHandler(this.ButtonDeserialise_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.returnBookToolStripMenuItem,
+            this.deserialiseToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1060, 26);
+            this.menuStrip1.TabIndex = 14;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // returnBookToolStripMenuItem
+            // 
+            this.returnBookToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.returnBookToolStripMenuItem.Name = "returnBookToolStripMenuItem";
+            this.returnBookToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.returnBookToolStripMenuItem.Text = "Return book";
+            this.returnBookToolStripMenuItem.Click += new System.EventHandler(this.returnBookToolStripMenuItem_Click);
+            // 
+            // deserialiseToolStripMenuItem
+            // 
+            this.deserialiseToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.deserialiseToolStripMenuItem.Name = "deserialiseToolStripMenuItem";
+            this.deserialiseToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.deserialiseToolStripMenuItem.Text = "Deserialise";
+            this.deserialiseToolStripMenuItem.Click += new System.EventHandler(this.deserialiseToolStripMenuItem_Click);
+            // 
             // Main_Borrowing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,9 +230,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TextBoxBorrower);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main_Borrowing";
             this.Text = "Main Borrowing";
             this.Load += new System.EventHandler(this.Main_Borrowing_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,6 +258,9 @@
         private System.Windows.Forms.Button ButtonChangeDate;
         private System.Windows.Forms.DateTimePicker DateTimePicker;
         private System.Windows.Forms.Button ButtonDeserialise;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem returnBookToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deserialiseToolStripMenuItem;
     }
 }
 
