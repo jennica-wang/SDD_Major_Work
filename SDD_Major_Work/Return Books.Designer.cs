@@ -51,9 +51,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.label1.Location = new System.Drawing.Point(93, 83);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 20);
+            this.label1.Size = new System.Drawing.Size(91, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Enter ISBN";
+            this.label1.Text = "Book ISBN";
             // 
             // ButtonReturn
             // 
