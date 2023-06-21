@@ -150,7 +150,10 @@ namespace SDD_Major_Work
             var ReturnBooksForm = new Return_Books();
             ReturnBooksForm.Show();
         }
-        
+        private void Main_Borrowing_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Serialise();
+        }
 
         private void Deserialise()
         {
@@ -162,6 +165,16 @@ namespace SDD_Major_Work
                 Globals.Books = (List<Book>)serializer.Deserialize(reader);
             }
         }   // deserealises XML file to List<Book>
+        private void Serialise()    // serialises list<Book> to XML file
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string booksfile = Path.Combine(path, "books.xml");
+            using (StreamWriter writer = new StreamWriter(booksfile))
+            {
+                serializer.Serialize(writer, Globals.Books);
+            }
+        }
         private void NewBorrow()    // initial screen size and date formatting applicable for all borrows
         {
             Location = new Point(0, 0);
@@ -243,6 +256,7 @@ namespace SDD_Major_Work
             TextBoxBook.Focus();
         }
 
+
         private void TextBoxSearch_Click(object sender, EventArgs e)
         {
             if (TextBoxSearch.Text == "Search...")
@@ -251,5 +265,6 @@ namespace SDD_Major_Work
                 TextBoxSearch.ForeColor = SystemColors.WindowText;
             }
         }
+        
     }
 }
