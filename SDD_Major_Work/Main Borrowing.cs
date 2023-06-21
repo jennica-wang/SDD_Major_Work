@@ -23,6 +23,7 @@ namespace SDD_Major_Work
         public void Main_Borrowing_Load(object sender, EventArgs e)
         {
             NewBorrow();
+            Deserialise();
             Globals.BorrowerList.Add("BorrowerA");
             Globals.BorrowerList.Add("BorrowerB");
             Globals.BorrowerList.Add("BorrowerC");
@@ -143,20 +144,13 @@ namespace SDD_Major_Work
                 Globals.receiptPreviewClosed = false;
             }
         }
-        private void ButtonDeserialise_Click(object sender, EventArgs e)
-        {
-            Deserialise();
-        }
         private void returnBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Deserialise();
             var ReturnBooksForm = new Return_Books();
             ReturnBooksForm.Show();
         }
-        private void deserialiseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Deserialise();
-        }
+        
 
         private void Deserialise()
         {

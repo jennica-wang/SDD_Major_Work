@@ -42,10 +42,8 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.ButtonChangeDate = new System.Windows.Forms.Button();
             this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.ButtonDeserialise = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.returnBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deserialiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TextBoxSearch = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -177,24 +175,13 @@
             this.DateTimePicker.ValueChanged += new System.EventHandler(this.DateTimePicker_ValueChanged);
             this.DateTimePicker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DateTimePicker_KeyPress);
             // 
-            // ButtonDeserialise
-            // 
-            this.ButtonDeserialise.Location = new System.Drawing.Point(277, 63);
-            this.ButtonDeserialise.Name = "ButtonDeserialise";
-            this.ButtonDeserialise.Size = new System.Drawing.Size(94, 38);
-            this.ButtonDeserialise.TabIndex = 13;
-            this.ButtonDeserialise.Text = "deserialise";
-            this.ButtonDeserialise.UseVisualStyleBackColor = true;
-            this.ButtonDeserialise.Click += new System.EventHandler(this.ButtonDeserialise_Click);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.menuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(16, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.returnBookToolStripMenuItem,
-            this.deserialiseToolStripMenuItem});
+            this.returnBookToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1060, 28);
@@ -209,19 +196,11 @@
             this.returnBookToolStripMenuItem.Text = "Return book";
             this.returnBookToolStripMenuItem.Click += new System.EventHandler(this.returnBookToolStripMenuItem_Click);
             // 
-            // deserialiseToolStripMenuItem
-            // 
-            this.deserialiseToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.deserialiseToolStripMenuItem.Name = "deserialiseToolStripMenuItem";
-            this.deserialiseToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
-            this.deserialiseToolStripMenuItem.Text = "Deserialise";
-            this.deserialiseToolStripMenuItem.Click += new System.EventHandler(this.deserialiseToolStripMenuItem_Click);
-            // 
             // TextBoxSearch
             // 
             this.TextBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.TextBoxSearch.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.TextBoxSearch.Location = new System.Drawing.Point(230, 2);
+            this.TextBoxSearch.Location = new System.Drawing.Point(146, 2);
             this.TextBoxSearch.Name = "TextBoxSearch";
             this.TextBoxSearch.Size = new System.Drawing.Size(312, 23);
             this.TextBoxSearch.TabIndex = 15;
@@ -234,7 +213,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1060, 642);
             this.Controls.Add(this.TextBoxSearch);
-            this.Controls.Add(this.ButtonDeserialise);
             this.Controls.Add(this.DateTimePicker);
             this.Controls.Add(this.ButtonChangeDate);
             this.Controls.Add(this.ListBoxBooks);
@@ -274,10 +252,8 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Button ButtonChangeDate;
         private System.Windows.Forms.DateTimePicker DateTimePicker;
-        private System.Windows.Forms.Button ButtonDeserialise;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem returnBookToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deserialiseToolStripMenuItem;
         private System.Windows.Forms.TextBox TextBoxSearch;
     }
 }
