@@ -53,7 +53,7 @@
             // TextBoxBorrower
             // 
             this.TextBoxBorrower.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.TextBoxBorrower.Location = new System.Drawing.Point(41, 77);
+            this.TextBoxBorrower.Location = new System.Drawing.Point(41, 83);
             this.TextBoxBorrower.Name = "TextBoxBorrower";
             this.TextBoxBorrower.Size = new System.Drawing.Size(180, 26);
             this.TextBoxBorrower.TabIndex = 0;
@@ -63,17 +63,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label1.Location = new System.Drawing.Point(42, 54);
+            this.label1.Location = new System.Drawing.Point(42, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 20);
+            this.label1.Size = new System.Drawing.Size(119, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Enter borrower code";
+            this.label1.Text = "Borrower code";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label2.Location = new System.Drawing.Point(552, 54);
+            this.label2.Location = new System.Drawing.Point(552, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 20);
             this.label2.TabIndex = 2;
@@ -83,7 +83,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label3.Location = new System.Drawing.Point(552, 81);
+            this.label3.Location = new System.Drawing.Point(552, 87);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 20);
             this.label3.TabIndex = 3;
@@ -92,7 +92,7 @@
             // TextBoxBook
             // 
             this.TextBoxBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.TextBoxBook.Location = new System.Drawing.Point(41, 180);
+            this.TextBoxBook.Location = new System.Drawing.Point(41, 187);
             this.TextBoxBook.Name = "TextBoxBook";
             this.TextBoxBook.Size = new System.Drawing.Size(180, 26);
             this.TextBoxBook.TabIndex = 4;
@@ -102,17 +102,17 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label4.Location = new System.Drawing.Point(42, 157);
+            this.label4.Location = new System.Drawing.Point(42, 164);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 20);
+            this.label4.Size = new System.Drawing.Size(91, 20);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Enter ISBN";
+            this.label4.Text = "Book ISBN";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label6.Location = new System.Drawing.Point(42, 245);
+            this.label6.Location = new System.Drawing.Point(42, 244);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(130, 20);
             this.label6.TabIndex = 7;
@@ -122,7 +122,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label7.Location = new System.Drawing.Point(554, 242);
+            this.label7.Location = new System.Drawing.Point(560, 241);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 20);
             this.label7.TabIndex = 8;
@@ -131,11 +131,11 @@
             // ButtonFinish
             // 
             this.ButtonFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.ButtonFinish.Location = new System.Drawing.Point(768, 571);
+            this.ButtonFinish.Location = new System.Drawing.Point(587, 517);
             this.ButtonFinish.Name = "ButtonFinish";
-            this.ButtonFinish.Size = new System.Drawing.Size(243, 37);
+            this.ButtonFinish.Size = new System.Drawing.Size(180, 37);
             this.ButtonFinish.TabIndex = 9;
-            this.ButtonFinish.Text = "Finalise borrowing ->";
+            this.ButtonFinish.Text = "Check out";
             this.ButtonFinish.UseVisualStyleBackColor = true;
             this.ButtonFinish.Click += new System.EventHandler(this.ButtonFinish_Click);
             // 
@@ -146,7 +146,7 @@
             this.ListBoxBooks.ItemHeight = 20;
             this.ListBoxBooks.Location = new System.Drawing.Point(41, 278);
             this.ListBoxBooks.Name = "ListBoxBooks";
-            this.ListBoxBooks.Size = new System.Drawing.Size(678, 224);
+            this.ListBoxBooks.Size = new System.Drawing.Size(726, 224);
             this.ListBoxBooks.TabIndex = 10;
             this.ListBoxBooks.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListBoxBooks_KeyDown);
             // 
@@ -158,19 +158,20 @@
             // ButtonChangeDate
             // 
             this.ButtonChangeDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.ButtonChangeDate.Location = new System.Drawing.Point(461, 237);
+            this.ButtonChangeDate.Location = new System.Drawing.Point(420, 234);
             this.ButtonChangeDate.Name = "ButtonChangeDate";
-            this.ButtonChangeDate.Size = new System.Drawing.Size(84, 31);
+            this.ButtonChangeDate.Size = new System.Drawing.Size(131, 35);
             this.ButtonChangeDate.TabIndex = 11;
-            this.ButtonChangeDate.Text = "Change";
+            this.ButtonChangeDate.Text = "Change date";
             this.ButtonChangeDate.UseVisualStyleBackColor = true;
             this.ButtonChangeDate.Click += new System.EventHandler(this.ButtonChangeDate_Click);
             // 
             // DateTimePicker
             // 
-            this.DateTimePicker.Location = new System.Drawing.Point(462, 270);
+            this.DateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.DateTimePicker.Location = new System.Drawing.Point(421, 271);
             this.DateTimePicker.Name = "DateTimePicker";
-            this.DateTimePicker.Size = new System.Drawing.Size(220, 20);
+            this.DateTimePicker.Size = new System.Drawing.Size(245, 23);
             this.DateTimePicker.TabIndex = 12;
             this.DateTimePicker.Visible = false;
             this.DateTimePicker.ValueChanged += new System.EventHandler(this.DateTimePicker_ValueChanged);
@@ -188,6 +189,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.menuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(16, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -195,23 +197,23 @@
             this.deserialiseToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1060, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(1060, 28);
             this.menuStrip1.TabIndex = 14;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // returnBookToolStripMenuItem
             // 
-            this.returnBookToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.returnBookToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.returnBookToolStripMenuItem.Name = "returnBookToolStripMenuItem";
-            this.returnBookToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.returnBookToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
             this.returnBookToolStripMenuItem.Text = "Return book";
             this.returnBookToolStripMenuItem.Click += new System.EventHandler(this.returnBookToolStripMenuItem_Click);
             // 
             // deserialiseToolStripMenuItem
             // 
-            this.deserialiseToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.deserialiseToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.deserialiseToolStripMenuItem.Name = "deserialiseToolStripMenuItem";
-            this.deserialiseToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.deserialiseToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
             this.deserialiseToolStripMenuItem.Text = "Deserialise";
             this.deserialiseToolStripMenuItem.Click += new System.EventHandler(this.deserialiseToolStripMenuItem_Click);
             // 
@@ -219,7 +221,7 @@
             // 
             this.TextBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.TextBoxSearch.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.TextBoxSearch.Location = new System.Drawing.Point(214, 2);
+            this.TextBoxSearch.Location = new System.Drawing.Point(230, 2);
             this.TextBoxSearch.Name = "TextBoxSearch";
             this.TextBoxSearch.Size = new System.Drawing.Size(312, 23);
             this.TextBoxSearch.TabIndex = 15;

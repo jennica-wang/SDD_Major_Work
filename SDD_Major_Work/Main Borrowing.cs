@@ -72,6 +72,8 @@ namespace SDD_Major_Work
                 {
                     MessageBox.Show("Invalid user");
                     TextBoxBorrower.Clear();
+                    label2.Text = "Borrower name: ";
+                    label3.Text = "Borrower code: ";
                 }
             }
         }        
@@ -121,7 +123,7 @@ namespace SDD_Major_Work
         }
         private void DateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            Globals.DueDate = DateTimePicker.Value.ToString("d");
+            Globals.DueDate = DateTimePicker.Value.ToString("dd/MM/yyyy");
             label7.Text = "Due date: " + Globals.DueDate;
         }        
         private void timer_Tick(object sender, EventArgs e)
@@ -137,8 +139,7 @@ namespace SDD_Major_Work
                 Globals.BookBorrowingList.Clear();
                 Globals.BookBorrowingList.TrimExcess();
                 Globals.BorrowerName = null;
-                Globals.DueDate = null;
-
+                
                 Globals.receiptPreviewClosed = false;
             }
         }
@@ -171,9 +172,7 @@ namespace SDD_Major_Work
         {
             Location = new Point(0, 0);
             Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);    // sets form size be full screen
-
             DateTimePicker.MinDate = DateTime.Now;
-            Globals.BorrowingTime = DateTime.Now;
             DateTimePicker.Value = DateTime.Now.AddDays(14);   // sets default return date to 14 days
         }
         private bool IdentifyBook(long InputISBN)   // finds if book exists
@@ -199,14 +198,14 @@ namespace SDD_Major_Work
         }
         private void IsLoaned(Book book)    // process for when a book is loaned
         {            
-                if (Globals.BookBorrowingList.Count == 0)   // if list is empty, assumed book was already loaned
-                {
-                    MessageBox.Show("Book is currently loaned, return the book first and try again.");
-                }
-                else
-                {
-                    LoanedReason(book);
-                }            
+            if (Globals.BookBorrowingList.Count == 0)   // if list is empty, assumed book was already loaned
+            {
+                MessageBox.Show("Book is currently loaned, return the book first and try again.");
+            }
+            else
+            {
+                LoanedReason(book);
+            }
         }
         private void LoanedReason(Book book)    // checks if book is loaned because it hasn't been returned or it's already been scanned
         {

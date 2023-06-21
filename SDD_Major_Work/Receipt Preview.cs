@@ -86,6 +86,7 @@ namespace SDD_Major_Work
         private void ReceiptPreviewInfo()   // adds info onto receiptpreview (borrower name, borrowing date and due date)
         {
             LabelBorrowerName.Text = "Borrower name: " + Globals.BorrowerName;
+            Globals.BorrowingTime = DateTime.Now;
             LabelBorrowingDate.Text = "Borrowing date: " + Convert.ToString(Globals.BorrowingTime);
             LabelDueDate.Text = "Due date: " + Globals.DueDate;
         }
@@ -100,8 +101,8 @@ namespace SDD_Major_Work
         private void ReceiptEdit()   // opens writer, edits text file contents for receipt, closes writer
         {
             StreamWriter sw = new StreamWriter(receiptfile);
-            sw.WriteLine("Jennica's Library\n" +
-                "Room 212 Hornsby Girls High School, Hornsby NSW 2077\n\n" +
+            sw.WriteLine("Sample Library\n" +
+                "Sample Address\n\n" +
                 "BOOK RECEIPT\n\n" +
                 $"Borrower name: {Globals.BorrowerName}\n" +
                 $"Borrowing date: {Convert.ToString(Globals.BorrowingTime)}\n" +
