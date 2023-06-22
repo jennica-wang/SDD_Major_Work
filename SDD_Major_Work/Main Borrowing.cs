@@ -37,13 +37,13 @@ namespace SDD_Major_Work
         {
             if (Globals.BorrowerName == null)   // check if borrower info has been entered
             {
-                MessageBox.Show("No user has been selected.");
+                MessageBox.Show("No borrower has been selected");
                 TextBoxBorrower.Select();
             }
 
             else if (Globals.BookBorrowingList.Count == 0)  // check if any books have been borrowed
             {
-                MessageBox.Show("No books have been selected.");
+                MessageBox.Show("No books have been selected");
                 TextBoxBook.Select();
                 if (Globals.BorrowerName == null)
                 {
@@ -71,7 +71,7 @@ namespace SDD_Major_Work
                 }
                 catch   // for invalid codes or data types
                 {
-                    MessageBox.Show("Invalid user");
+                    MessageBox.Show("Invalid borrower");
                     TextBoxBorrower.Clear();
                     label2.Text = "Borrower name: ";
                     label3.Text = "Borrower code: ";
