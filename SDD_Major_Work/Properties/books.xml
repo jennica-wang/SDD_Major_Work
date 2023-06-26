@@ -19,14 +19,14 @@
     <Author>Roald Dahl</Author>
     <ISBN>9780241558348</ISBN>
     <Genre>Fantasy</Genre>
-    <Status>Loaned</Status>
+    <Status>Available</Status>
   </Book>
   <Book>
     <BookName>James and the Giant Peach</BookName>
     <Author>Roald Dahl</Author>
     <ISBN>9780241558331</ISBN>
     <Genre>Fantasy</Genre>
-    <Status>Loaned</Status>
+    <Status>Available</Status>
   </Book>
   <Book>
     <BookName>Fantastic Mr Fox</BookName>
@@ -40,21 +40,21 @@
     <Author>Roald Dahl</Author>
     <ISBN>9780241578186</ISBN>
     <Genre>Short Story</Genre>
-    <Status>Loaned</Status>
+    <Status>Available</Status>
   </Book>
   <Book>
     <BookName>George's Marvellous Medicine</BookName>
     <Author>Roald Dahl</Author>
     <ISBN>9780241558485</ISBN>
     <Genre>Fantasy</Genre>
-    <Status>Loaned</Status>
+    <Status>Available</Status>
   </Book>
   <Book>
     <BookName>The Magic Finger</BookName>
     <Author>Roald Dahl</Author>
     <ISBN>9780141322681</ISBN>
     <Genre>Short Story</Genre>
-    <Status>Loaned</Status>
+    <Status>Available</Status>
   </Book>
   <Book>
     <BookName>Revolting Rhymes</BookName>
