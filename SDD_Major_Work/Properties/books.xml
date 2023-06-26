@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfBook xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Book>
+    <BookName>Matilda</BookName>
+    <Author>Roald Dahl</Author>
+    <ISBN>9780241558300</ISBN>
+    <Genre>Humor</Genre>
+    <Status>Loaned</Status>
+  </Book>
+  <Book>
+    <BookName>Charlie and the Chocolate Factory</BookName>
+    <Author>Roald Dahl</Author>
+    <ISBN>9780241558324</ISBN>
+    <Genre>Humor</Genre>
+    <Status>Available</Status>
+  </Book>
+  <Book>
+    <BookName>The BFG</BookName>
+    <Author>Roald Dahl</Author>
+    <ISBN>9780241558348</ISBN>
+    <Genre>Fantasy</Genre>
+    <Status>Loaned</Status>
+  </Book>
+  <Book>
+    <BookName>James and the Giant Peach</BookName>
+    <Author>Roald Dahl</Author>
+    <ISBN>9780241558331</ISBN>
+    <Genre>Fantasy</Genre>
+    <Status>Loaned</Status>
+  </Book>
+  <Book>
+    <BookName>Fantastic Mr Fox</BookName>
+    <Author>Roald Dahl</Author>
+    <ISBN>9780241558355</ISBN>
+    <Genre>Adventure</Genre>
+    <Status>Available</Status>
+  </Book>
+  <Book>
+    <BookName>The Twits</BookName>
+    <Author>Roald Dahl</Author>
+    <ISBN>9780241578186</ISBN>
+    <Genre>Short Story</Genre>
+    <Status>Loaned</Status>
+  </Book>
+  <Book>
+    <BookName>George's Marvellous Medicine</BookName>
+    <Author>Roald Dahl</Author>
+    <ISBN>9780241558485</ISBN>
+    <Genre>Fantasy</Genre>
+    <Status>Loaned</Status>
+  </Book>
+  <Book>
+    <BookName>The Magic Finger</BookName>
+    <Author>Roald Dahl</Author>
+    <ISBN>9780141322681</ISBN>
+    <Genre>Short Story</Genre>
+    <Status>Loaned</Status>
+  </Book>
+  <Book>
+    <BookName>Revolting Rhymes</BookName>
+    <Author>Roald Dahl</Author>
+    <ISBN>9780140375336</ISBN>
+    <Genre>Poetry</Genre>
+    <Status>Available</Status>
+  </Book>
+  <Book>
+    <BookName>The Enormous Crocodile</BookName>
+    <Author>Roald Dahl</Author>
+    <ISBN>9780241568644</ISBN>
+    <Genre>Short Story</Genre>
+    <Status>Loaned</Status>
+  </Book>
+  <Book>
+    <BookName>Esio Trot</BookName>
+    <Author>Roald Dahl</Author>
+    <ISBN>9780141346496</ISBN>
+    <Genre>Short Story</Genre>
+    <Status>Available</Status>
+  </Book>
+  <Book>
+    <BookName>The Giraffe and the Pelly and Me</BookName>
+    <Author>Roald Dahl</Author>
+    <ISBN>9780241558508</ISBN>
+    <Genre>Short Story</Genre>
+    <Status>Loaned</Status>
+  </Book>
+  <Book>
+    <BookName>The Witches</BookName>
+    <Author>Roald Dahl</Author>
+    <ISBN>9780241578179</ISBN>
+    <Genre>Fantasy</Genre>
+    <Status>Loaned</Status>
+  </Book>
+</ArrayOfBook>

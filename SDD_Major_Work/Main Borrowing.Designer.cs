@@ -229,7 +229,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main_Borrowing";
             this.Text = "Main Borrowing";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Borrowing_FormClosing);
             this.Load += new System.EventHandler(this.Main_Borrowing_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

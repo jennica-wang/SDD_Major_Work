@@ -9,12 +9,13 @@ namespace SDD_Major_Work
     static class Globals
     {
         public static List<string> BorrowerList = new List<string>();
+        public static List<Book> Books = new List<Book>();
         public static List<string> BookBorrowingList = new List<string>();
         public static string BorrowerName;
         public static string DueDate;
         public static DateTime BorrowingTime;
         public static bool receiptPreviewClosed;
+        public const string booksfile = "..\\..\\Properties\\books.xml";
 
-        public static List<Book> Books = new List<Book>();
     }
 }

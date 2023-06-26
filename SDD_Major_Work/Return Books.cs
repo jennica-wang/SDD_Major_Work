@@ -54,9 +54,7 @@ namespace SDD_Major_Work
         private void Serialise()    // serialises list<Book> to XML file
         {
             XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string booksfile = Path.Combine(path, "books.xml");
-            using (StreamWriter writer = new StreamWriter(booksfile))
+            using (StreamWriter writer = new StreamWriter(Globals.booksfile))
             {
                 serializer.Serialize(writer, Globals.Books);
             }
