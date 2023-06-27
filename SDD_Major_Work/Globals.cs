@@ -15,7 +15,9 @@ namespace SDD_Major_Work
         public static string DueDate;
         public static DateTime BorrowingTime;
         public static bool receiptPreviewClosed;
-        public const string booksfile = "..\\..\\Properties\\books.xml";
+        
+
+        public static string booksfile;
 
     }
 }

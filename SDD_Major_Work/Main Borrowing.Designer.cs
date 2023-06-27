@@ -45,6 +45,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.returnBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TextBoxSearch = new System.Windows.Forms.TextBox();
+            this.createFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -181,7 +182,8 @@
             this.menuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(16, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.returnBookToolStripMenuItem});
+            this.returnBookToolStripMenuItem,
+            this.createFileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1060, 28);
@@ -200,12 +202,20 @@
             // 
             this.TextBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.TextBoxSearch.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.TextBoxSearch.Location = new System.Drawing.Point(146, 2);
+            this.TextBoxSearch.Location = new System.Drawing.Point(223, 2);
             this.TextBoxSearch.Name = "TextBoxSearch";
             this.TextBoxSearch.Size = new System.Drawing.Size(312, 23);
             this.TextBoxSearch.TabIndex = 15;
             this.TextBoxSearch.Text = "Search...";
             this.TextBoxSearch.Click += new System.EventHandler(this.TextBoxSearch_Click);
+            // 
+            // createFileToolStripMenuItem
+            // 
+            this.createFileToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
+            this.createFileToolStripMenuItem.Name = "createFileToolStripMenuItem";
+            this.createFileToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
+            this.createFileToolStripMenuItem.Text = "Create file";
+            this.createFileToolStripMenuItem.Click += new System.EventHandler(this.createFileToolStripMenuItem_Click);
             // 
             // Main_Borrowing
             // 
@@ -255,6 +265,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem returnBookToolStripMenuItem;
         private System.Windows.Forms.TextBox TextBoxSearch;
+        private System.Windows.Forms.ToolStripMenuItem createFileToolStripMenuItem;
     }
 }
 

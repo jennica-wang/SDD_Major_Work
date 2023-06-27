@@ -99,8 +99,8 @@ namespace SDD_Major_Work
         private void ReceiptEdit()   // opens writer, edits text file contents for receipt, closes writer
         {
             StreamWriter sw = new StreamWriter(receiptfile);
-            sw.WriteLine("Sample Library\n" +
-                "Sample Address\n\n" +
+            sw.WriteLine("Lib Bookary Library\n" +
+                "Lib Bookary Address\n\n" +
                 "BOOK RECEIPT\n\n" +
                 $"Borrower name: {Globals.BorrowerName}\n" +
                 $"Borrowing date: {Convert.ToString(Globals.BorrowingTime)}\n" +

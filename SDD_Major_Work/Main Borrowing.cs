@@ -22,6 +22,9 @@ namespace SDD_Major_Work
         }
         public void Main_Borrowing_Load(object sender, EventArgs e)
         {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            Globals.booksfile = Path.Combine(path, "books.xml");
+
             NewBorrow();
             Deserialise();
             Globals.BorrowerList.Add("BorrowerA");
@@ -250,6 +253,10 @@ namespace SDD_Major_Work
                 TextBoxSearch.ForeColor = SystemColors.WindowText;
             }
         }
-        
+
+        private void createFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
