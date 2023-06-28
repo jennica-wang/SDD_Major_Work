@@ -195,7 +195,7 @@ namespace SDD_Major_Work
         {            
             if (Globals.BookBorrowingList.Count == 0)   // if list is empty, assumed book was already loaned
             {
-                MessageBox.Show("Book is currently loaned, return the book first and try again.");
+                MessageBox.Show("Book is currently loaned, return the book first and try again");
             }
             else
             {
@@ -208,13 +208,13 @@ namespace SDD_Major_Work
             {
                 if (item == book.BookName)  // book was already scanned
                 {
-                    MessageBox.Show("Book has already been scanned.");
+                    MessageBox.Show("Book has already been scanned");
                     break;
                 }
 
                 else    // book is still loaned
                 {
-                    MessageBox.Show("Book is currently loaned, return the book first and try again.");
+                    MessageBox.Show("Book is currently loaned, return the book first and try again");
                 }
             }
         }
