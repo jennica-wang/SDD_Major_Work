@@ -93,6 +93,8 @@ namespace SDD_Major_Work
             if (ValidateReason == "returning")
             {
                 book.Status = "Available";
+                LabelRecentReturn.Text = "Recently returned:\n" + book.BookName;
+                LabelRecentReturn.Visible = true;
                 TextBoxISBN.Clear();
             }
         }
@@ -109,6 +111,13 @@ namespace SDD_Major_Work
         {
             MessageBox.Show("Invalid book");
             TextBoxISBN.Focus();
+        }
+
+        private void Return_Books_Load(object sender, EventArgs e)
+        {
+            LabelRecentReturn.AutoSize = false;
+            LabelRecentReturn.Size = new System.Drawing.Size(290, 200);
+
         }
     }
 }

@@ -33,12 +33,13 @@
             this.ButtonReturn = new System.Windows.Forms.Button();
             this.ButtonClose = new System.Windows.Forms.Button();
             this.LabelBookName = new System.Windows.Forms.Label();
+            this.LabelRecentReturn = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TextBoxISBN
             // 
             this.TextBoxISBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.TextBoxISBN.Location = new System.Drawing.Point(97, 111);
+            this.TextBoxISBN.Location = new System.Drawing.Point(46, 80);
             this.TextBoxISBN.Name = "TextBoxISBN";
             this.TextBoxISBN.Size = new System.Drawing.Size(138, 26);
             this.TextBoxISBN.TabIndex = 0;
@@ -49,7 +50,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label1.Location = new System.Drawing.Point(93, 83);
+            this.label1.Location = new System.Drawing.Point(42, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 20);
             this.label1.TabIndex = 1;
@@ -58,7 +59,7 @@
             // ButtonReturn
             // 
             this.ButtonReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.ButtonReturn.Location = new System.Drawing.Point(97, 202);
+            this.ButtonReturn.Location = new System.Drawing.Point(46, 171);
             this.ButtonReturn.Name = "ButtonReturn";
             this.ButtonReturn.Size = new System.Drawing.Size(138, 44);
             this.ButtonReturn.TabIndex = 2;
@@ -69,7 +70,7 @@
             // ButtonClose
             // 
             this.ButtonClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.ButtonClose.Location = new System.Drawing.Point(245, 202);
+            this.ButtonClose.Location = new System.Drawing.Point(194, 171);
             this.ButtonClose.Name = "ButtonClose";
             this.ButtonClose.Size = new System.Drawing.Size(138, 44);
             this.ButtonClose.TabIndex = 3;
@@ -81,25 +82,39 @@
             // 
             this.LabelBookName.AutoSize = true;
             this.LabelBookName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.LabelBookName.Location = new System.Drawing.Point(93, 152);
+            this.LabelBookName.Location = new System.Drawing.Point(42, 121);
             this.LabelBookName.Name = "LabelBookName";
             this.LabelBookName.Size = new System.Drawing.Size(98, 20);
             this.LabelBookName.TabIndex = 4;
             this.LabelBookName.Text = "Book name:";
             // 
+            // LabelRecentReturn
+            // 
+            this.LabelRecentReturn.AutoSize = true;
+            this.LabelRecentReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
+            this.LabelRecentReturn.Location = new System.Drawing.Point(43, 252);
+            this.LabelRecentReturn.Name = "LabelRecentReturn";
+            this.LabelRecentReturn.Size = new System.Drawing.Size(146, 20);
+            this.LabelRecentReturn.TabIndex = 5;
+            this.LabelRecentReturn.Text = "Recently returned:";
+            this.LabelRecentReturn.Visible = false;
+            // 
             // Return_Books
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 318);
+            this.ClientSize = new System.Drawing.Size(409, 355);
+            this.Controls.Add(this.LabelRecentReturn);
             this.Controls.Add(this.LabelBookName);
             this.Controls.Add(this.ButtonClose);
             this.Controls.Add(this.ButtonReturn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TextBoxISBN);
             this.Name = "Return_Books";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Return_Books";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Return_Books_FormClosing);
+            this.Load += new System.EventHandler(this.Return_Books_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,5 +127,6 @@
         private System.Windows.Forms.Button ButtonReturn;
         private System.Windows.Forms.Button ButtonClose;
         private System.Windows.Forms.Label LabelBookName;
+        private System.Windows.Forms.Label LabelRecentReturn;
     }
 }

@@ -254,9 +254,10 @@ namespace SDD_Major_Work
             }
         }
 
-        private void createFileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void addBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            var AddBookFrom = new Add_Book();
+            AddBookFrom.Show();
         }
     }
 }
