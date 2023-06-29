@@ -44,7 +44,6 @@
             this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.returnBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.TextBoxSearch = new System.Windows.Forms.TextBox();
             this.addBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -198,17 +197,6 @@
             this.returnBookToolStripMenuItem.Text = "Return book";
             this.returnBookToolStripMenuItem.Click += new System.EventHandler(this.returnBookToolStripMenuItem_Click);
             // 
-            // TextBoxSearch
-            // 
-            this.TextBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.TextBoxSearch.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.TextBoxSearch.Location = new System.Drawing.Point(223, 2);
-            this.TextBoxSearch.Name = "TextBoxSearch";
-            this.TextBoxSearch.Size = new System.Drawing.Size(312, 23);
-            this.TextBoxSearch.TabIndex = 15;
-            this.TextBoxSearch.Text = "Search...";
-            this.TextBoxSearch.Click += new System.EventHandler(this.TextBoxSearch_Click);
-            // 
             // addBookToolStripMenuItem
             // 
             this.addBookToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
@@ -222,7 +210,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1060, 642);
-            this.Controls.Add(this.TextBoxSearch);
             this.Controls.Add(this.DateTimePicker);
             this.Controls.Add(this.ButtonChangeDate);
             this.Controls.Add(this.ListBoxBooks);
@@ -264,7 +251,6 @@
         private System.Windows.Forms.DateTimePicker DateTimePicker;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem returnBookToolStripMenuItem;
-        private System.Windows.Forms.TextBox TextBoxSearch;
         private System.Windows.Forms.ToolStripMenuItem addBookToolStripMenuItem;
     }
 }
