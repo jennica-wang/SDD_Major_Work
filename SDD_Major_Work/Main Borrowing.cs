@@ -109,11 +109,12 @@ namespace SDD_Major_Work
         }        
         private void ButtonChangeDate_Click(object sender, EventArgs e)
         {
-            if (DateTimePicker.Visible == false)   // pressing button changes visibility of datetimepicker to visible or not visible
+            if (groupBox1.Visible == false)   // pressing button changes visibility of datetimepicker to visible or not visible
             {
-                DateTimePicker.Visible = true;
+                groupBox1.Visible = true;
+                DateTimePicker.Visible = false;
             }
-            else if (DateTimePicker.Visible == true)
+            else if (groupBox1.Visible == true)
             {
                 HideDateTimePicker();
             }
@@ -127,6 +128,10 @@ namespace SDD_Major_Work
         }
         private void DateTimePicker_ValueChanged(object sender, EventArgs e)
         {
+            RadioButton3Days.Checked = false;
+            RadioButton1Week.Checked = false;
+            RadioButton2Weeks.Checked = false;
+            RadioButton4Weeks.Checked = false;
             Globals.DueDate = DateTimePicker.Value.ToString("dd/MM/yyyy");
             label7.Text = "Due date: " + Globals.DueDate;
         }        
@@ -240,13 +245,61 @@ namespace SDD_Major_Work
         }
         private void HideDateTimePicker()   // hides and focuses on textbox
         {
-            DateTimePicker.Visible = false;
+            groupBox1.Visible = false;
             TextBoxBook.Focus();
         }
         private void addBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var AddBookFrom = new Add_Book();
             AddBookFrom.Show();
+        }
+
+        private void RadioButton3Days_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RadioButton3Days.Checked == true)
+            {
+                ChangeDueDate(3);
+            }
+        }
+
+        private void RadioButton1Week_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RadioButton1Week.Checked == true)
+            {
+                ChangeDueDate(7);
+            }
+        }
+
+        private void RadioButton2Weeks_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RadioButton2Weeks.Checked == true)
+            {
+                ChangeDueDate(14);
+            }
+        }
+
+        private void RadioButton4Weeks_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RadioButton4Weeks.Checked == true)
+            {
+                ChangeDueDate(28);
+            }
+        }
+
+        private void ChangeDueDate(int days)
+        {
+            Globals.DueDate = DateTime.Now.AddDays(days).ToString("dd/MM/yyyy");
+            label7.Text = "Due date: " + Globals.DueDate;
+        }
+
+        private void ButtonCustomDate_Click(object sender, EventArgs e)
+        {
+            RadioButton3Days.Checked = false;
+            RadioButton1Week.Checked = false;
+            RadioButton2Weeks.Checked = false;
+            RadioButton4Weeks.Checked = false;
+            DateTimePicker.Value = DateTime.Now;
+            DateTimePicker.Visible = true;
         }
     }
 }
