@@ -72,6 +72,7 @@ namespace SDD_Major_Work
             this.Close();
         }
 
+
         private void ReceiptPreviewInfo()   // adds info onto receiptpreview (borrower name, borrowing date and due date)
         {
             LabelBorrowerName.Text = "Borrower name: " + Globals.BorrowerName;
