@@ -41,7 +41,6 @@ namespace SDD_Major_Work
                 reader.Close();
             }
             
-            Serialise();    // serialises updated list with statuses
             Globals.receiptPreviewClosed = true;    // printing is done and new borrow needs to be started
             this.Close();
         }        
@@ -73,14 +72,6 @@ namespace SDD_Major_Work
             this.Close();
         }
 
-        private void Serialise()    // serialises list<Book> to XML file
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
-            using (StreamWriter writer = new StreamWriter(Globals.booksfile))
-            {
-                serializer.Serialize(writer, Globals.Books);
-            }
-        }
         private void ReceiptPreviewInfo()   // adds info onto receiptpreview (borrower name, borrowing date and due date)
         {
             LabelBorrowerName.Text = "Borrower name: " + Globals.BorrowerName;

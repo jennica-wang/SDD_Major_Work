@@ -20,6 +20,11 @@ namespace SDD_Major_Work
         {
             InitializeComponent();
         }
+        private void Return_Books_Load(object sender, EventArgs e)
+        {
+            LabelRecentReturn.AutoSize = false;
+            LabelRecentReturn.Size = new System.Drawing.Size(290, 200);
+        }
         private void TextBoxISBN_TextChanged(object sender, EventArgs e)
         {
             if (TextBoxISBN.Text.Length == 13) // valid ISBN should have 13 digits
@@ -46,19 +51,8 @@ namespace SDD_Major_Work
         {
             this.Close();
         }
-        private void Return_Books_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Serialise();
-        }
 
-        private void Serialise()    // serialises list<Book> to XML file
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
-            using (StreamWriter writer = new StreamWriter(Globals.booksfile))
-            {
-                serializer.Serialize(writer, Globals.Books);
-            }
-        }
+
         private void ValidateBook(string ValidateReason)    // if the book exists the book is returned and/or name is displayed
         {
             try
@@ -111,13 +105,6 @@ namespace SDD_Major_Work
         {
             MessageBox.Show("Invalid book");
             TextBoxISBN.Focus();
-        }
-
-        private void Return_Books_Load(object sender, EventArgs e)
-        {
-            LabelRecentReturn.AutoSize = false;
-            LabelRecentReturn.Size = new System.Drawing.Size(290, 200);
-
         }
     }
 }

@@ -200,16 +200,40 @@ namespace SDD_Major_Work
             DateTimePicker.Value = DateTime.Now;
             DateTimePicker.Visible = true;
         }
+        private void Main_Borrowing_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Serialise();
+        }
 
 
         private void Deserialise()  // deserealises XML file to List<Book>
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
-            using (StreamReader reader = new StreamReader(Globals.booksfile))
+            if (File.Exists(Globals.booksfile) == true) // if file exists
             {
-                Globals.Books = (List<Book>)serializer.Deserialize(reader);
+                long fileLength = new FileInfo(Globals.booksfile).Length;
+                if (fileLength != 0)    // if file isn't empty
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
+                    using (StreamReader reader = new StreamReader(Globals.booksfile))
+                    {
+                        Globals.Books = (List<Book>)serializer.Deserialize(reader);
+                    }
+                }
             }
-        }   
+            else    // creates file
+            {
+                FileStream fs = File.Create(Globals.booksfile);
+                fs.Close();
+            }
+        }
+        private void Serialise()    // serialises list<Book> to XML file
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
+            using (StreamWriter writer = new StreamWriter(Globals.booksfile))
+            {
+                serializer.Serialize(writer, Globals.Books);
+            }
+        }
         private void NewBorrow()    // initial screen size and date formatting applicable for all borrows
         {
             Location = new Point(0, 0);
