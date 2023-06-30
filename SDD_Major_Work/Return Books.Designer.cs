@@ -113,6 +113,7 @@
             this.Name = "Return_Books";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Return_Books";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Return_Books_FormClosing);
             this.Load += new System.EventHandler(this.Return_Books_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

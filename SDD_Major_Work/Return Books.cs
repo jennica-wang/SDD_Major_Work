@@ -51,7 +51,10 @@ namespace SDD_Major_Work
         {
             this.Close();
         }
-
+        private void Return_Books_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Serialise();
+        }
 
         private void ValidateBook(string ValidateReason)    // if the book exists the book is returned and/or name is displayed
         {
@@ -105,6 +108,14 @@ namespace SDD_Major_Work
         {
             MessageBox.Show("Invalid book");
             TextBoxISBN.Focus();
+        }
+        private void Serialise()    // serialises list<Book> to XML file
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
+            using (StreamWriter writer = new StreamWriter(Globals.booksfile))
+            {
+                serializer.Serialize(writer, Globals.Books);
+            }
         }
     }
 }

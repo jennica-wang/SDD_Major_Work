@@ -61,6 +61,10 @@ namespace SDD_Major_Work
                 AddBook();
             }
         }
+        private void Add_Book_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Serialise();
+        }
 
 
         private void AddBook()
@@ -136,6 +140,14 @@ namespace SDD_Major_Work
             TextBoxAuthor.Clear();
             TextBoxGenre.Clear();
             TextBoxISBN.Focus();
+        }
+        private void Serialise()    // serialises list<Book> to XML file
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
+            using (StreamWriter writer = new StreamWriter(Globals.booksfile))
+            {
+                serializer.Serialize(writer, Globals.Books);
+            }
         }
     }
 }

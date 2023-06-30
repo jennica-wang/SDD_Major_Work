@@ -202,7 +202,6 @@ namespace SDD_Major_Work
         }
         private void Main_Borrowing_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Serialise();
         }
 
 
@@ -224,14 +223,6 @@ namespace SDD_Major_Work
             {
                 FileStream fs = File.Create(Globals.booksfile);
                 fs.Close();
-            }
-        }
-        private void Serialise()    // serialises list<Book> to XML file
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
-            using (StreamWriter writer = new StreamWriter(Globals.booksfile))
-            {
-                serializer.Serialize(writer, Globals.Books);
             }
         }
         private void NewBorrow()    // initial screen size and date formatting applicable for all borrows
@@ -319,5 +310,10 @@ namespace SDD_Major_Work
             Globals.DueDate = DateTime.Now.AddDays(days).ToString("dd/MM/yyyy");
             label7.Text = "Due date: " + Globals.DueDate;
         }   // changes the due date depending on the data entered
+
+        private void TextBoxBorrower_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

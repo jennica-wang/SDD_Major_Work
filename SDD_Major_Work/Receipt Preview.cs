@@ -40,7 +40,7 @@ namespace SDD_Major_Work
             {
                 reader.Close();
             }
-            
+            Serialise();
             Globals.receiptPreviewClosed = true;    // printing is done and new borrow needs to be started
             this.Close();
         }        
@@ -108,6 +108,14 @@ namespace SDD_Major_Work
             receiptDocument.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);  // printing formatting
 
             receiptDocument.Print();    // prints receipt
+        }
+        private void Serialise()    // serialises list<Book> to XML file
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
+            using (StreamWriter writer = new StreamWriter(Globals.booksfile))
+            {
+                serializer.Serialize(writer, Globals.Books);
+            }
         }
     }
 }

@@ -62,6 +62,7 @@
             this.TextBoxBorrower.Name = "TextBoxBorrower";
             this.TextBoxBorrower.Size = new System.Drawing.Size(180, 26);
             this.TextBoxBorrower.TabIndex = 0;
+            this.TextBoxBorrower.TextChanged += new System.EventHandler(this.TextBoxBorrower_TextChanged);
             this.TextBoxBorrower.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxBorrower_KeyPress);
             // 
             // label1
